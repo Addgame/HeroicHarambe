@@ -119,7 +119,7 @@ public class Levels implements ScreenManager {
             ProjectilePool.setRange(30);
             Control.addThrowButton(0, 0, 50, 50, "", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
-            h.setJumpImpulses(0, 20);
+            h.setJumpImpulses(0, 14);
             Control.addJumpButton(60, 0, 50, 50, "red.png", h);
 
             Score.setVictoryEnemyCount();
@@ -193,7 +193,7 @@ public class Levels implements ScreenManager {
             ProjectilePool.setRange(30);
             Control.addThrowButton(0, 0, 50, 50, "", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
-            h.setJumpImpulses(0, 20);
+            h.setJumpImpulses(0, 14);
             Control.addJumpButton(60, 0, 50, 50, "red.png", h);
 
             Score.setVictoryEnemyCount();
