@@ -99,7 +99,6 @@ public class Levels implements ScreenManager {
             // also be in your android game's assets folder.
             Hero h = Hero.makeAsCircle(4, 5, 3, 3, "greenball.png");
             h.setMoveByTilting();
-            h.setJumpImpulses(0, 20);
 
             Level.setCameraChase(h);
             // draw a circular destination, and indicate that the level is won
@@ -120,9 +119,11 @@ public class Levels implements ScreenManager {
             ProjectilePool.setRange(30);
             Control.addThrowButton(0, 0, 50, 50, "", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
+            h.setJumpImpulses(0, 20);
+            Control.addJumpButton(60, 0, 50, 50, "red.png", h);
 
             Score.setVictoryEnemyCount();
-            Control.addJumpButton(300, 200, 50, 50, "red.png", h);
+
         }
 
         /*
@@ -190,8 +191,10 @@ public class Levels implements ScreenManager {
 
             ProjectilePool.configure(100, 1, 1, "greyball.png", 1, 0, true);
             ProjectilePool.setRange(30);
-            Control.addThrowButton(0, 0, 960, 640, "", h, 100, 3, 1.5f, 30, 0);
+            Control.addThrowButton(0, 0, 50, 50, "", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
+            h.setJumpImpulses(0, 20);
+            Control.addJumpButton(60, 0, 50, 50, "red.png", h);
 
             Score.setVictoryEnemyCount();
         }
