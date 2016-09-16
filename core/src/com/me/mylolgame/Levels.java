@@ -117,10 +117,13 @@ public class Levels implements ScreenManager {
 
             ProjectilePool.configure(100, 1, 1, "greyball.png", 1, 0, true);
             ProjectilePool.setRange(30);
-            Control.addThrowButton(0, 0, 50, 50, "", h, 100, 3, 1.5f, 30, 0);
+            Control.addThrowButton(0, 7, 50, 50, "", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
             h.setJumpImpulses(0, 14);
-            Control.addJumpButton(60, 0, 50, 50, "red.png", h);
+            Control.addJumpButton(60, 7, 50, 50, "red.png", h);
+
+            Control.addLeftButton(500,7, 50, 50, "", 20, h);
+            Control.addRightButton(590,7, 50, 50, "", 20, h);
 
             Score.setVictoryEnemyCount();
 
@@ -195,6 +198,8 @@ public class Levels implements ScreenManager {
             Level.setCameraChase(h);
             h.setJumpImpulses(0, 14);
             Control.addJumpButton(60, 0, 50, 50, "red.png", h);
+            Control.addLeftButton(500,7, 50, 50, "", 20, h);
+            Control.addRightButton(590,7, 50, 50, "", 20, h);
 
             Score.setVictoryEnemyCount();
         }
