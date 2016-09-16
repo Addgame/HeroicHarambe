@@ -106,7 +106,7 @@ public class Levels implements ScreenManager {
             // registered in registerMedia()
             Destination.makeAsCircle(140, 5, 4, 2, "mustardball.png");
             Score.setVictoryDestination(1);
-            Obstacle o = Obstacle.makeAsBox(60, 11, 18, 3, "purpleball.png");
+            Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "purpleball.png");
 
             Enemy e = Enemy.makeAsBox(68, 14, 2, 2, "redball.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
@@ -115,15 +115,19 @@ public class Levels implements ScreenManager {
             Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "redball.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
 
+            ProjectilePool.configure(100, 1, 1, "greyball.png", 1, 0, true);
+            ProjectilePool.setRange(30);
+            Control.addThrowButton(0, 0, 960, 640, "", h, 100, 3, 1.5f, 30, 0);
+            Level.setCameraChase(h);
+
             Score.setVictoryEnemyCount();
         }
-
 
         /*
          * In this level, we make the play a bit smoother by adding a bounding
          * box and changing the way that LibLOL interacts with the player
          */
-        else if (whichLevel == 2) {
+       /* else if (whichLevel == 2) {
             // start by setting everything up just like in level 1
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -147,8 +151,48 @@ public class Levels implements ScreenManager {
             // pt. The "\n" in the middle of the text causes a line break. Note
             // that "arial.ttf" must be in your android game's assets folder.
             PreScene.get().addText("Reach the destination\nto win this level.", 50, 50, 255, 255, 255, "arial.ttf", 32);
-        }
+        }*/
+        else if (whichLevel == 2) {
+            Level.configure(3*48, 32);
+            // there is no default gravitational force
+            Physics.configure(0, -10);
 
+            // in this level, we'll use tilt to move some things around. The
+            // maximum force that tilt can exert on anything is +/- 10 in the X
+            // dimension, and +/- 10 in the Y dimension
+            Tilt.enable(10, 10);
+            Util.drawBoundingBox(0, 5, 3 * 48, 32, "red.png", 1, 0, 1);
+            // now let's create a hero, and indicate that the hero can move by
+            // tilting the phone. "greenball.png" must be registered in
+            // the registerMedia() method, which is also in this file. It must
+            // also be in your android game's assets folder.
+            Hero h = Hero.makeAsCircle(4, 5, 3, 3, "greenball.png");
+            h.setMoveByTilting();
+
+            Level.setCameraChase(h);
+            // draw a circular destination, and indicate that the level is won
+            // when the hero reaches the destination. "mustardball.png" must be
+            // registered in registerMedia()
+            Destination.makeAsCircle(140, 5, 4, 2, "mustardball.png");
+            Score.setVictoryDestination(1);
+            Obstacle.makeAsBox(39, 11, 16, 3, "purpleball.png");
+            Obstacle.makeAsBox(80, 11, 16, 3, "purpleball.png");
+            Obstacle.makeAsBox(60, 5, 4, 12, "purpleball.png");
+
+            Enemy e = Enemy.makeAsBox(45, 14, 2, 2, "redball.png");
+            e.setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy ee = Enemy.makeAsBox(88, 14, 2, 2, "redball.png");
+            ee.setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "redball.png");
+            eee.setPhysics(1.0f, 0.3f, 0.6f);
+
+            ProjectilePool.configure(100, 1, 1, "greyball.png", 1, 0, true);
+            ProjectilePool.setRange(30);
+            Control.addThrowButton(0, 0, 960, 640, "", h, 100, 3, 1.5f, 30, 0);
+            Level.setCameraChase(h);
+
+            Score.setVictoryEnemyCount();
+        }
         /*
          * In this level, we change the physics from level 2 so that things roll
          * and bounce a little bit more nicely.
