@@ -91,7 +91,7 @@ public class Levels implements ScreenManager {
             // in this level, we'll use tilt to move some things around. The
             // maximum force that tilt can exert on anything is +/- 10 in the X
             // dimension, and +/- 10 in the Y dimension
-            Tilt.enable(10, 10);
+            Tilt.enable(10, 0);
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "red.png", 1, 0, 1);
             // now let's create a hero, and indicate that the hero can move by
             // tilting the phone. "greenball.png" must be registered in
@@ -99,6 +99,7 @@ public class Levels implements ScreenManager {
             // also be in your android game's assets folder.
             Hero h = Hero.makeAsCircle(4, 5, 3, 3, "greenball.png");
             h.setMoveByTilting();
+            h.setJumpImpulses(0, 20);
 
             Level.setCameraChase(h);
             // draw a circular destination, and indicate that the level is won
@@ -116,6 +117,7 @@ public class Levels implements ScreenManager {
             eee.setPhysics(1.0f, 0.3f, 0.6f);
 
             Score.setVictoryEnemyCount();
+            Control.addJumpButton(300, 200, 50, 50, "red.png", h);
         }
 
 
@@ -1120,7 +1122,7 @@ public class Levels implements ScreenManager {
             // turn on tilt, but only in the X dimension
             Tilt.enable(10, 0);
             PreScene.get().addText("Side scroller / tilt demo", 255, 255, 255, "arial.ttf", 32);
-            Util.drawBoundingBox(0, 0, 3 * 48, 32, "red.png", 1, 0, 1);
+            //Util.drawBoundingBox(0, 0, 3 * 48, 32, "red.png", 1, 0, 1);
             Hero h = Hero.makeAsCircle(2, 2, 3, 3, "greenball.png");
             h.setPhysics(.1f, 0, 0.6f);
             h.setMoveByTilting();
