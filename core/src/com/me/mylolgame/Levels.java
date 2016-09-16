@@ -118,7 +118,7 @@ public class Levels implements ScreenManager {
 
             ProjectilePool.configure(100, 1, 1, "greyball.png", 1, 0, true);
             ProjectilePool.setRange(30);
-            Control.addThrowButton(0, 0, 960, 640, "", h, 100, 3, 1.5f, 30, 0);
+            Control.addThrowButton(0, 0, 50, 50, "", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
 
             Score.setVictoryEnemyCount();
