@@ -97,26 +97,27 @@ public class Levels implements ScreenManager {
             // tilting the phone. "greenball.png" must be registered in
             // the registerMedia() method, which is also in this file. It must
             // also be in your android game's assets folder.
-            Hero h = Hero.makeAsCircle(4, 5, 3, 3, "HarambeArt/Harambe Body.png");
+            Hero h = Hero.makeAsCircle(4, 5, 3, 3, "greenball.png");
 
             Level.setCameraChase(h);
             // draw a circular destination, and indicate that the level is won
             // when the hero reaches the destination. "mustardball.png" must be
             // registered in registerMedia()
-            Destination.makeAsCircle(140, 5, 4, 2, "mustardball.png");
-            Score.setVictoryDestination(1);
-            Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "HarambeArt/Platform/Canada Repeat Platform.png");
 
-            Enemy e = Enemy.makeAsBox(68, 14, 2, 2, "HarambeArt/guy.png");
+            Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "purpleball.png");
+
+            Enemy e = Enemy.makeAsBox(68, 14, 2, 2, "redball.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy ee = Enemy.makeAsBox(45, 5, 2, 2, "HarambeArt/guy.png");
+            Enemy ee = Enemy.makeAsBox(45, 5, 2, 2, "redball.png");
             ee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/guy.png");
+            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "redball.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy f = Enemy.makeAsBox(136, 5, 5, 5, "mustardball.png");
+            f.setPhysics(1.0f, 0.3f, 0.6f);
 
-            ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
+            ProjectilePool.configure(100, 1, 1, "greyball.png", 1, 0, true);
             ProjectilePool.setRange(30);
-            Control.addThrowButton(20, 7, 50, 50, "HarambeArt/Throw.png", h, 100, 3, 1.5f, 30, 0);
+            Control.addThrowButton(20, 7, 50, 50, "", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
             h.setJumpImpulses(0, 14);
             Control.addJumpButton(110, 7, 50, 50, "HarambeArt/Jump.png", h);
