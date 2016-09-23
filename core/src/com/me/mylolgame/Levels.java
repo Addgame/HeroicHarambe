@@ -185,18 +185,18 @@ public class Levels implements ScreenManager {
             // registered in registerMedia()
             Destination.makeAsCircle(140, 5, 4, 2, "mustardball.png");
             Score.setVictoryDestination(1);
-            Obstacle.makeAsBox(39, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png.png");
-            Obstacle.makeAsBox(80, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png.png");
-            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Platform/Detroid Repeat Platform.png.png");
+            Obstacle.makeAsBox(39, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(80, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Platform/Detroid Repeat Platform.png");
 
-            Enemy e = Enemy.makeAsBox(45, 14, 2, 2, "HarambeArt/kinfe guy1.png");
+            Enemy e = Enemy.makeAsBox(45, 14, 2, 2, "HarambeArt/knife guy1.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy ee = Enemy.makeAsBox(88, 14, 2, 2, "HarambeArt/kinfe guy1.png");
+            Enemy ee = Enemy.makeAsBox(88, 14, 2, 2, "HarambeArt/knife guy1.png");
             ee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/kinfe guy1.png");
+            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/knife guy1.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
 
-            ProjectilePool.configure(100, 1, 1, "greyball.png", 1, 0, true);
+            ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
             ProjectilePool.setRange(30);
             Control.addThrowButton(20, 7, 50, 50, "HarambeArt/Throw.png", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
