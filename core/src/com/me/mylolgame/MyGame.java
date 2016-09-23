@@ -114,6 +114,10 @@ public class MyGame extends Lol {
         Media.registerImage("HarambeArt/shotgun1.png");
         Media.registerImage("HarambeArt/shotgun2.png");
         Media.registerImage("HarambeArt/Throw.png");
+        Media.registerImage("HarambeArt/Platform/Canada Repeat Platform.png");
+        Media.registerImage("HarambeArt/Platform/Cincinatti Repeat Platform.png");
+        Media.registerImage("HarambeArt/Platform/Detroid Repeat Platform.png");
+        Media.registerImage("HarambeArt/Platform/Mexico Repeat Platform.png");
 
         // load the image we show on the main screen
         Media.registerImage("splash.png");
