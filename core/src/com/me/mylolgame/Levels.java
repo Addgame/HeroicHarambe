@@ -119,10 +119,10 @@ public class Levels implements ScreenManager {
             Control.addThrowButton(20, 7, 50, 50, "", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
             h.setJumpImpulses(0, 14);
-            Control.addJumpButton(110, 7, 50, 50, "HarambeArt.Jump.png", h);
+            Control.addJumpButton(110, 7, 50, 50, "HarambeArt/Jump.png", h);
 
-            Control.addLeftButton(500,7, 50, 50, "", 20, h);
-            Control.addRightButton(590,7, 50, 50, "", 20, h);
+            Control.addLeftButton(500,7, 50, 50, "HarambeArt/Left.png", 20, h);
+            Control.addRightButton(590,7, 50, 50, "HarambeArt/Right.png", 20, h);
 
             Score.setVictoryEnemyCount();
 

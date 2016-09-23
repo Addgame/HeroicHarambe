@@ -94,6 +94,26 @@ public class MyGame extends Lol {
         Media.registerImage("leveltile.png");
         Media.registerImage("audio_on.png");
         Media.registerImage("audio_off.png");
+        Media.registerImage("HarambeArt/book.png");
+        Media.registerImage("HarambeArt/bullet.png");
+        Media.registerImage("HarambeArt/guy.png");
+        Media.registerImage("HarambeArt/guy2.png");
+        Media.registerImage("HarambeArt/Harambe Arm.png");
+        Media.registerImage("HarambeArt/Harambe Body.png");
+        Media.registerImage("HarambeArt/Harambe complete.png");
+        Media.registerImage("HarambeArt/hat.png");
+        Media.registerImage("HarambeArt/Jump.png");
+        Media.registerImage("HarambeArt/knife guy1.png");
+        Media.registerImage("HarambeArt/knife guy2.png");
+        Media.registerImage("HarambeArt/Lamp Post.png");
+        Media.registerImage("HarambeArt/Left.png");
+        Media.registerImage("HarambeArt/mard.png");
+        Media.registerImage("HarambeArt/pistol guuy2.png");
+        Media.registerImage("HarambeArt/pistol guy1.png");
+        Media.registerImage("HarambeArt/Right.png");
+        Media.registerImage("HarambeArt/shotgun1.png");
+        Media.registerImage("HarambeArt/shotgun2.png");
+        Media.registerImage("HarambeArt/Throw.png");
 
         // load the image we show on the main screen
         Media.registerImage("splash.png");
