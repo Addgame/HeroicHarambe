@@ -97,7 +97,7 @@ public class Levels implements ScreenManager {
             // tilting the phone. "greenball.png" must be registered in
             // the registerMedia() method, which is also in this file. It must
             // also be in your android game's assets folder.
-            Hero h = Hero.makeAsCircle(4, 5, 3, 3, "HarambeArt/Harambe Body.png");
+            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Body.png");
 
             Level.setCameraChase(h);
             // draw a circular destination, and indicate that the level is won
@@ -107,11 +107,11 @@ public class Levels implements ScreenManager {
             Score.setVictoryDestination(1);
             Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "HarambeArt/Platform/Canada Repeat Platform.png");
 
-            Enemy e = Enemy.makeAsBox(68, 14, 2, 2, "HarambeArt/guy.png");
+            Enemy e = Enemy.makeAsBox(68, 14, 3, 5, "HarambeArt/guy.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy ee = Enemy.makeAsBox(45, 5, 2, 2, "HarambeArt/guy.png");
+            Enemy ee = Enemy.makeAsBox(45, 5, 3, 5, "HarambeArt/guy.png");
             ee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/guy.png");
+            Enemy eee = Enemy.makeAsBox(120, 5, 3, 5, "HarambeArt/guy.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
 
             ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
@@ -171,7 +171,7 @@ public class Levels implements ScreenManager {
             // tilting the phone. "greenball.png" must be registered in
             // the registerMedia() method, which is also in this file. It must
             // also be in your android game's assets folder.
-            Hero h = Hero.makeAsCircle(4, 5, 3, 3, "HarambeArt/Harambe Body.png");
+            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Body.png");
 
             Level.setCameraChase(h);
             // draw a circular destination, and indicate that the level is won
@@ -183,11 +183,11 @@ public class Levels implements ScreenManager {
             Obstacle.makeAsBox(80, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Platform/Detroid Repeat Platform.png");
 
-            Enemy e = Enemy.makeAsBox(45, 14, 2, 2, "HarambeArt/knife guy1.png");
+            Enemy e = Enemy.makeAsBox(45, 14, 3, 5, "HarambeArt/knife guy1.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy ee = Enemy.makeAsBox(88, 14, 2, 2, "HarambeArt/knife guy1.png");
+            Enemy ee = Enemy.makeAsBox(88, 14, 3, 5, "HarambeArt/knife guy1.png");
             ee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/knife guy1.png");
+            Enemy eee = Enemy.makeAsBox(120, 5, 3, 5, "HarambeArt/knife guy1.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
 
             ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
