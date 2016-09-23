@@ -231,9 +231,11 @@ public class Levels implements ScreenManager {
          */
 
         else if (whichLevel == 3) {
+            // set background music
             Level.configure(3*48, 32);
             // there is no default gravitational force
             Physics.configure(0, -10);
+            Level.setMusic("Music/Bosses/Boss 04.ogg");
 
             // in this level, we'll use tilt to move some things around. The
             // maximum force that tilt can exert on anything is +/- 10 in the X
@@ -253,7 +255,7 @@ public class Levels implements ScreenManager {
 
             Obstacle.makeAsBox(30, 11, 16, 3, "HarambeArt/Platform/Mexico Repeat Platform.png");
             Obstacle.makeAsBox(80, 18, 16, 3, "HarambeArt/Platform/Mexico Repeat Platform.png");
-            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/mard.png");
+            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Lamp Post.png");
 
             Enemy e = Enemy.makeAsBox(35, 14, 5, 5, "HarambeArt/pistol guy1.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
