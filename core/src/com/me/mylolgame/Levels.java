@@ -168,6 +168,8 @@ public class Levels implements ScreenManager {
             PreScene.get().addText("Reach the destination\nto win this level.", 50, 50, 255, 255, 255, "arial.ttf", 32);
         }*/
         else if (whichLevel == 2) {
+            // set background music
+
             Level.configure(3*48, 32);
             // there is no default gravitational force
             Physics.configure(0, -10);
@@ -176,6 +178,7 @@ public class Levels implements ScreenManager {
             // maximum force that tilt can exert on anything is +/- 10 in the X
             // dimension, and +/- 10 in the Y dimension
 
+            Level.setMusic("Music/Bosses/Boss 02.ogg");
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
             // now let's create a hero, and indicate that the hero can move by
             // tilting the phone. "greenball.png" must be registered in
@@ -241,26 +244,26 @@ public class Levels implements ScreenManager {
             // tilting the phone. "greenball.png" must be registered in
             // the registerMedia() method, which is also in this file. It must
             // also be in your android game's assets folder.
-            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Body.png");
+            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Complete.png");
 
             Level.setCameraChase(h);
             // draw a circular destination, and indicate that the level is won
             // when the hero reaches the destination. "mustardball.png" must be
             // registered in registerMedia()
 
-            Obstacle.makeAsBox(30, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
-            Obstacle.makeAsBox(80, 18, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
-            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Lamp Post.png");
+            Obstacle.makeAsBox(30, 11, 16, 3, "HarambeArt/Platform/Mexico Repeat Platform.png");
+            Obstacle.makeAsBox(80, 18, 16, 3, "HarambeArt/Platform/Mexico Repeat Platform.png");
+            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/mard.png");
 
-            Enemy e = Enemy.makeAsBox(35, 14, 5, 5, "HarambeArt/knife guy1.png");
+            Enemy e = Enemy.makeAsBox(35, 14, 5, 5, "HarambeArt/pistol guy1.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy ee = Enemy.makeAsBox(90, 21, 5, 5, "HarambeArt/knife guy1.png");
+            Enemy ee = Enemy.makeAsBox(90, 21, 5, 5, "HarambeArt/pistol guy1.png");
             ee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/knife guy1.png");
+            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/pistol guy1.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy g = Enemy.makeAsBox(53, 5, 5, 5, "HarambeArt/knife guy1.png");
+            Enemy g = Enemy.makeAsBox(53, 5, 5, 5, "HarambeArt/pistol guy1.png");
             g.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy gg = Enemy.makeAsBox(71, 5, 5, 5, "HarambeArt/knife guy1.png");
+            Enemy gg = Enemy.makeAsBox(71, 5, 5, 5, "HarambeArt/pistol guy1.png");
             gg.setPhysics(1.0f, 0.3f, 0.6f);
             Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
