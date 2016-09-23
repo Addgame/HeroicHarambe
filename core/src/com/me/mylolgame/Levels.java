@@ -92,7 +92,7 @@ public class Levels implements ScreenManager {
             // maximum force that tilt can exert on anything is +/- 10 in the X
             // dimension, and +/- 10 in the Y dimension
 
-            Util.drawBoundingBox(0, 5, 3 * 48, 32, "red.png", 1, 0, 1);
+            Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Canada Repeat Platform.png", 1, 0, 1);
             // now let's create a hero, and indicate that the hero can move by
             // tilting the phone. "greenball.png" must be registered in
             // the registerMedia() method, which is also in this file. It must
@@ -105,8 +105,8 @@ public class Levels implements ScreenManager {
             // registered in registerMedia()
             Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "HarambeArt/Platform/Canada Repeat Platform.png");
 
-            Enemy.makeAsBox(68, 14, 2, 2, "HarambeArt/guy.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy ee = Enemy.makeAsBox(45, 5, 2, 2, "HarambeArt/guy.png");
+            Enemy.makeAsBox(68, 14, 3, 5, "HarambeArt/guy.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy ee = Enemy.makeAsBox(45, 5, 3, 5, "HarambeArt/guy.png");
             ee.setPhysics(1.0f, 0.3f, 0.6f);
             Enemy eee = Enemy.makeAsBox(120, 5, 3, 5, "HarambeArt/guy.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
@@ -175,7 +175,7 @@ public class Levels implements ScreenManager {
             // maximum force that tilt can exert on anything is +/- 10 in the X
             // dimension, and +/- 10 in the Y dimension
 
-            Util.drawBoundingBox(0, 5, 3 * 48, 32, "red.png", 1, 0, 1);
+            Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
             // now let's create a hero, and indicate that the hero can move by
             // tilting the phone. "greenball.png" must be registered in
             // the registerMedia() method, which is also in this file. It must
@@ -187,16 +187,16 @@ public class Levels implements ScreenManager {
             // when the hero reaches the destination. "mustardball.png" must be
             // registered in registerMedia()
             Destination.makeAsCircle(140, 5, 4, 2, "HarambeArt/book.png");
-            Score.setVictoryDestination(1);
+            Score.setVictoryDestination(1);;
             Obstacle.makeAsBox(39, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(80, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
-            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Lamp Post.png");
 
-            Enemy e = Enemy.makeAsBox(45, 14, 3, 5, "HarambeArt/knife guy1.png");
+            Enemy e = Enemy.makeAsBox(45, 14, 5, 5, "HarambeArt/knife guy1.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy ee = Enemy.makeAsBox(88, 14, 3, 5, "HarambeArt/knife guy1.png");
+            Enemy ee = Enemy.makeAsBox(88, 14, 5, 5, "HarambeArt/knife guy1.png");
             ee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy eee = Enemy.makeAsBox(120, 5, 3, 5, "HarambeArt/knife guy1.png");
+            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/knife guy1.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
 
             ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
