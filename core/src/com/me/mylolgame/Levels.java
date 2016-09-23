@@ -103,7 +103,7 @@ public class Levels implements ScreenManager {
             // draw a circular destination, and indicate that the level is won
             // when the hero reaches the destination. "mustardball.png" must be
             // registered in registerMedia()
-            Destination.makeAsCircle(140, 5, 4, 2, "mustardball.png");
+            Destination.makeAsCircle(140, 5, 4, 2, "HarambeArt/book.png");
             Score.setVictoryDestination(1);
             Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "HarambeArt/Platform/Canada Repeat Platform.png");
 
@@ -177,7 +177,7 @@ public class Levels implements ScreenManager {
             // draw a circular destination, and indicate that the level is won
             // when the hero reaches the destination. "mustardball.png" must be
             // registered in registerMedia()
-            Destination.makeAsCircle(140, 5, 4, 2, "mustardball.png");
+            Destination.makeAsCircle(140, 5, 4, 2, "HarambeArt/book.png");
             Score.setVictoryDestination(1);
             Obstacle.makeAsBox(39, 11, 16, 3, "purpleball.png");
             Obstacle.makeAsBox(80, 11, 16, 3, "purpleball.png");
@@ -195,10 +195,10 @@ public class Levels implements ScreenManager {
             Control.addThrowButton(20, 7, 50, 50, "", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
             h.setJumpImpulses(0, 14);
-            Control.addJumpButton(110, 7, 50, 50, "red.png", h);
+            Control.addJumpButton(110, 7, 50, 50, "HarambeArt/Jump.png", h);
 
-            Control.addLeftButton(500,7, 50, 50, "", 20, h);
-            Control.addRightButton(590,7, 50, 50, "", 20, h);
+            Control.addLeftButton(500,7, 50, 50, "HarambeArt/Left.png", 20, h);
+            Control.addRightButton(590,7, 50, 50, "HarambeArt/Right.png", 20, h);
 
             Score.setVictoryEnemyCount();
         }
