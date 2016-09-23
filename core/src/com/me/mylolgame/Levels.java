@@ -114,7 +114,7 @@ public class Levels implements ScreenManager {
             ee.setPhysics(1.0f, 0.3f, 0.6f);
             Enemy eee = Enemy.makeAsBox(120, 5, 3, 5, "HarambeArt/guy.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
-            Obstacle f = Obstacle.makeAsBox(136, 5, 5, 5, "mustardball.png");
+            Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
@@ -187,8 +187,7 @@ public class Levels implements ScreenManager {
             // draw a circular destination, and indicate that the level is won
             // when the hero reaches the destination. "mustardball.png" must be
             // registered in registerMedia()
-            Destination.makeAsCircle(140, 5, 4, 2, "HarambeArt/book.png");
-            Score.setVictoryDestination(1);
+
             Obstacle.makeAsBox(39, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(80, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Lamp Post.png");
@@ -199,7 +198,7 @@ public class Levels implements ScreenManager {
             ee.setPhysics(1.0f, 0.3f, 0.6f);
             Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/knife guy1.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
-            Obstacle f = Obstacle.makeAsBox(138, 5, 5, 5, "mustardball.png");
+            Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
@@ -227,32 +226,65 @@ public class Levels implements ScreenManager {
          * In this level, we change the physics from level 2 so that things roll
          * and bounce a little bit more nicely.
          */
+
         else if (whichLevel == 3) {
-            // These lines should be familiar after the last two levels
-            Level.configure(48, 32);
-            Physics.configure(0, 0);
-            Tilt.enable(10, 10);
-            Hero h = Hero.makeAsCircle(4, 7, 3, 3, "greenball.png");
-            h.setMoveByTilting();
-            Destination.makeAsCircle(29, 6, 2, 2, "mustardball.png");
-            Score.setVictoryDestination(1);
+            Level.configure(3*48, 32);
+            // there is no default gravitational force
+            Physics.configure(0, -10);
 
-            // give the hero some density and friction, so that it can roll when
-            // it encounters a wall... notice that once it has density, it has
-            // mass, and it moves a lot slower...
-            h.setPhysics(1, 0, 0.6f);
+            // in this level, we'll use tilt to move some things around. The
+            // maximum force that tilt can exert on anything is +/- 10 in the X
+            // dimension, and +/- 10 in the Y dimension
 
-            // the bounding box now also has nonzero density, elasticity, and
-            // friction... you should check out what happens if the friction
-            // stays at 0.
-            Util.drawBoundingBox(0, 0, 48, 32, "red.png", 1, .3f, 1);
+            Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
+            // now let's create a hero, and indicate that the hero can move by
+            // tilting the phone. "greenball.png" must be registered in
+            // the registerMedia() method, which is also in this file. It must
+            // also be in your android game's assets folder.
+            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Body.png");
 
-            // Let's draw our message in the center of the screen this time
-            PreScene.get().addText("Reach the destination\nto win this level.", 255, 255, 255, "arial.ttf", 32);
-            // And let's say that instead of touching the message to make it go
-            // away, we'll have it go away automatically after 2 seconds
-            PreScene.get().setExpire(2);
-            // Note that we're going back to the default PostScene text...
+            Level.setCameraChase(h);
+            // draw a circular destination, and indicate that the level is won
+            // when the hero reaches the destination. "mustardball.png" must be
+            // registered in registerMedia()
+
+            Obstacle.makeAsBox(30, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(80, 18, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Lamp Post.png");
+
+            Enemy e = Enemy.makeAsBox(35, 14, 5, 5, "HarambeArt/knife guy1.png");
+            e.setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy ee = Enemy.makeAsBox(90, 21, 5, 5, "HarambeArt/knife guy1.png");
+            ee.setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/knife guy1.png");
+            eee.setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy g = Enemy.makeAsBox(53, 5, 5, 5, "HarambeArt/knife guy1.png");
+            g.setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy gg = Enemy.makeAsBox(71, 5, 5, 5, "HarambeArt/knife guy1.png");
+            gg.setPhysics(1.0f, 0.3f, 0.6f);
+            Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
+            f.setPhysics(1.0f, 0.3f, 0.6f);
+            f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
+                        @Override
+                        public void onEvent() {
+                            if (Score.getEnemiesDefeated() == 5) {
+                                Score.winLevel();
+                            }
+                        }
+                    }
+            );
+
+            ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
+            ProjectilePool.setRange(30);
+            Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 500, 3, 2.5f, 30, 0);
+            Level.setCameraChase(h);
+            h.setJumpImpulses(0, 14);
+            Control.addJumpButton(800, 18, 75, 75, "HarambeArt/Jump.png", h);
+
+            Control.addLeftButton(80,18, 75, 75, "HarambeArt/Left.png", 20, h);
+            Control.addRightButton(230,18, 75, 75, "HarambeArt/Right.png", 20, h);
+
+            Score.setVictoryEnemyCount();
         }
 
         /*
