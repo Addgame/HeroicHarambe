@@ -151,5 +151,19 @@ public class MyGame extends Lol {
 
         // load background music
         Media.registerMusic("tune.ogg", true);
+        Media.registerMusic("Music/Bosses/Boss 01.ogg", true);
+        Media.registerMusic("Music/Bosses/Boss 02.ogg", true);
+        Media.registerMusic("Music/Bosses/Boss 03 (Final).ogg", true);
+        Media.registerMusic("Music/Bosses/Boss 04.ogg", true);
+        Media.registerMusic("Music/Effects/Explosion.ogg", true);
+        Media.registerMusic("Music/Effects/Game Over.ogg", true);
+        Media.registerMusic("Music/Effects/Japanese News.ogg", true);
+        Media.registerMusic("Music/Effects/Landing.ogg", true);
+        Media.registerMusic("Music/Effects/Man crying.ogg", true);
+        Media.registerMusic("Music/Effects/Open Close Meun.ogg", true);
+        Media.registerMusic("Music/Effects/Rock explode.ogg", true);
+        Media.registerMusic("Music/Effects/Run.ogg", true);
+        Media.registerMusic("Music/Effects/Throwing.ogg", true);
+        Media.registerMusic("Music/Effects/Woman Crying.ogg", true);
     }
 }

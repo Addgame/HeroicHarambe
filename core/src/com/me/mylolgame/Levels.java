@@ -76,6 +76,8 @@ public class Levels implements ScreenManager {
          * configured to use tilt to control the hero.
          */
         if (whichLevel == 1) {
+            // set background music
+
             // set the screen to 48 meters wide by 32 meters high... this is
             // important, because Config.java says the screen is 480x320, and
             // LOL likes a 20:1 pixel to meter ratio. If we went smaller than
@@ -87,6 +89,8 @@ public class Levels implements ScreenManager {
             Level.configure(3*48, 32);
             // there is no default gravitational force
             Physics.configure(0, -10);
+
+            Level.setMusic("Music/Bosses/Boss 01.ogg");
 
             // in this level, we'll use tilt to move some things around. The
             // maximum force that tilt can exert on anything is +/- 10 in the X
