@@ -235,6 +235,7 @@ public class Levels implements ScreenManager {
             Level.configure(3*48, 32);
             // there is no default gravitational force
             Physics.configure(0, -10);
+
             Level.setMusic("Music/Bosses/Boss 04.ogg");
 
             // in this level, we'll use tilt to move some things around. The
