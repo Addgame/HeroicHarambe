@@ -105,7 +105,7 @@ public class Levels implements ScreenManager {
             // registered in registerMedia()
             Destination.makeAsCircle(140, 5, 4, 2, "mustardball.png");
             Score.setVictoryDestination(1);
-            Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "purpleball.png");
+            Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "HarambeArt/Platform/Canada Repeat Platform.png");
 
             Enemy e = Enemy.makeAsBox(68, 14, 2, 2, "HarambeArt/guy.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
@@ -114,7 +114,7 @@ public class Levels implements ScreenManager {
             Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/guy.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
 
-            ProjectilePool.configure(100, 1, 1, "greyball.png", 1, 0, true);
+            ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
             ProjectilePool.setRange(30);
             Control.addThrowButton(20, 7, 50, 50, "HarambeArt/Throw.png", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
