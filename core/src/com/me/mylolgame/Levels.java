@@ -110,7 +110,7 @@ public class Levels implements ScreenManager {
             ee.setPhysics(1.0f, 0.3f, 0.6f);
             Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/guy.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
-            Obstacle f = Obstacle.makeAsBox(136, 5, 5, 5, "mustardball.png");
+            Obstacle f = Obstacle.makeAsBox(138, 5, 5, 5, "mustardball.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
@@ -125,13 +125,13 @@ public class Levels implements ScreenManager {
 
             ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
             ProjectilePool.setRange(30);
-            Control.addThrowButton(20, 7, 50, 50, "HarambeArt/Throw.png", h, 100, 3, 1.5f, 30, 0);
+            Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
             h.setJumpImpulses(0, 14);
-            Control.addJumpButton(110, 7, 50, 50, "HarambeArt/Jump.png", h);
+            Control.addJumpButton(800, 18, 75, 75, "HarambeArt/Jump.png", h);
 
-            Control.addLeftButton(500,7, 50, 50, "HarambeArt/Left.png", 20, h);
-            Control.addRightButton(590,7, 50, 50, "HarambeArt/Right.png", 20, h);
+            Control.addLeftButton(80,18, 75, 75, "HarambeArt/Left.png", 20, h);
+            Control.addRightButton(230,18, 75, 75, "HarambeArt/Right.png", 20, h);
         }
 
         /*
@@ -195,18 +195,28 @@ public class Levels implements ScreenManager {
             ee.setPhysics(1.0f, 0.3f, 0.6f);
             Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/knife guy1.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
+            Obstacle f = Obstacle.makeAsBox(138, 5, 5, 5, "mustardball.png");
+            f.setPhysics(1.0f, 0.3f, 0.6f);
+            f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
+                        @Override
+                        public void onEvent() {
+                            if (Score.getEnemiesDefeated() == 3) {
+                                Score.winLevel();
+                            }
+                        }
+                    }
+            );
 
             ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
             ProjectilePool.setRange(30);
-            Control.addThrowButton(20, 7, 50, 50, "HarambeArt/Throw.png", h, 100, 3, 1.5f, 30, 0);
+            Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 100, 3, 1.5f, 30, 0);
             Level.setCameraChase(h);
             h.setJumpImpulses(0, 14);
-            Control.addJumpButton(110, 7, 50, 50, "red.png", h);
+            Control.addJumpButton(800, 18, 75, 75, "HarambeArt/Jump.png", h);
 
-            Control.addLeftButton(500,7, 50, 50, "", 20, h);
-            Control.addRightButton(590,7, 50, 50, "", 20, h);
+            Control.addLeftButton(80,18, 75, 75, "HarambeArt/Left.png", 20, h);
+            Control.addRightButton(230,18, 75, 75, "HarambeArt/Right.png", 20, h);
 
-            Score.setVictoryEnemyCount();
         }
         /*
          * In this level, we change the physics from level 2 so that things roll
