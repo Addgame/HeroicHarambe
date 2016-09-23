@@ -105,16 +105,23 @@ public class Levels implements ScreenManager {
             // registered in registerMedia()
             Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "HarambeArt/Platform/Canada Repeat Platform.png");
 
-            Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "purpleball.png");
-
             Enemy.makeAsBox(68, 14, 2, 2, "HarambeArt/guy.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy ee = Enemy.makeAsBox(45, 5, 2, 2, "HarambeArt/guy.png");
             ee.setPhysics(1.0f, 0.3f, 0.6f);
             Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/guy.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy f = Enemy.makeAsBox(136, 5, 5, 5, "mustardball.png");
+            Obstacle f = Obstacle.makeAsBox(136, 5, 5, 5, "mustardball.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
-            f.setDisappearOnTouch();
+            f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
+                        @Override
+                        public void onEvent() {
+                            if (Score.getEnemiesDefeated() == 3) {
+                                Score.winLevel();
+                            }
+                        }
+                    }
+            );
+
 
             ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
             ProjectilePool.setRange(30);
@@ -125,9 +132,6 @@ public class Levels implements ScreenManager {
 
             Control.addLeftButton(500,7, 50, 50, "HarambeArt/Left.png", 20, h);
             Control.addRightButton(590,7, 50, 50, "HarambeArt/Right.png", 20, h);
-
-            Score.setVictoryEnemyCount();
-
         }
 
         /*
