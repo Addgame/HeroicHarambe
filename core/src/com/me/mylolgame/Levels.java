@@ -125,7 +125,7 @@ public class Levels implements ScreenManager {
 
             ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
             ProjectilePool.setRange(30);
-            Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 100, 3, 1.5f, 30, 0);
+            Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 500, 3, 2.5f, 30, 0);
             Level.setCameraChase(h);
             h.setJumpImpulses(0, 14);
             Control.addJumpButton(800, 18, 75, 75, "HarambeArt/Jump.png", h);
@@ -184,7 +184,7 @@ public class Levels implements ScreenManager {
             // when the hero reaches the destination. "mustardball.png" must be
             // registered in registerMedia()
             Destination.makeAsCircle(140, 5, 4, 2, "HarambeArt/book.png");
-            Score.setVictoryDestination(1);;
+            Score.setVictoryDestination(1);
             Obstacle.makeAsBox(39, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(80, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Lamp Post.png");
@@ -209,7 +209,7 @@ public class Levels implements ScreenManager {
 
             ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
             ProjectilePool.setRange(30);
-            Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 100, 3, 1.5f, 30, 0);
+            Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 500, 3, 2.5f, 30, 0);
             Level.setCameraChase(h);
             h.setJumpImpulses(0, 14);
             Control.addJumpButton(800, 18, 75, 75, "HarambeArt/Jump.png", h);
