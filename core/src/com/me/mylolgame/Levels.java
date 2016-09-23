@@ -97,7 +97,7 @@ public class Levels implements ScreenManager {
             // tilting the phone. "greenball.png" must be registered in
             // the registerMedia() method, which is also in this file. It must
             // also be in your android game's assets folder.
-            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Body.png");
+            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Complete.png");
 
             Level.setCameraChase(h);
             // draw a circular destination, and indicate that the level is won
@@ -180,7 +180,7 @@ public class Levels implements ScreenManager {
             // tilting the phone. "greenball.png" must be registered in
             // the registerMedia() method, which is also in this file. It must
             // also be in your android game's assets folder.
-            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Body.png");
+            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Complete.png");
 
             Level.setCameraChase(h);
             // draw a circular destination, and indicate that the level is won
