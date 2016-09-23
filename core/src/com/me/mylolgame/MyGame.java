@@ -100,7 +100,7 @@ public class MyGame extends Lol {
         Media.registerImage("HarambeArt/guy2.png");
         Media.registerImage("HarambeArt/Harambe Arm.png");
         Media.registerImage("HarambeArt/Harambe Body.png");
-        Media.registerImage("HarambeArt/Harambe complete.png");
+        Media.registerImage("HarambeArt/Harambe Complete.png");
         Media.registerImage("HarambeArt/hat.png");
         Media.registerImage("HarambeArt/Jump.png");
         Media.registerImage("HarambeArt/knife guy1.png");
@@ -118,6 +118,9 @@ public class MyGame extends Lol {
         Media.registerImage("HarambeArt/Platform/Cincinatti Repeat Platform.png");
         Media.registerImage("HarambeArt/Platform/Detroid Repeat Platform.png");
         Media.registerImage("HarambeArt/Platform/Mexico Repeat Platform.png");
+        Media.registerImage("HarambeArt/Harambe Arm(back).png");
+        Media.registerImage("HarambeArt/Harambe Body(back).png");
+        Media.registerImage("HarambeArt/Harambe Complete(back).png");
 
         // load the image we show on the main screen
         Media.registerImage("splash.png");
