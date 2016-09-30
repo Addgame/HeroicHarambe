@@ -110,11 +110,11 @@ public class Levels implements ScreenManager {
             Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "HarambeArt/Platform/Canada Repeat Platform.png");
 
             Enemy.makeAsBox(68, 14, 3, 5, "HarambeArt/guy.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy ee = Enemy.makeAsBox(45, 5, 3, 5, "HarambeArt/guy.png");
+            Enemy ee = Enemy.makeAsBox(45, 5, 3, 5, "HarambeArt/Characters(Good)/doctorS.png");
             ee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy eee = Enemy.makeAsBox(120, 5, 3, 5, "HarambeArt/guy.png");
+            Enemy eee = Enemy.makeAsBox(120, 5, 3, 5, "HarambeArt/Characters(Good)/doctorS.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
-            Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
+            Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
