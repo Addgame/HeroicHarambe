@@ -76,7 +76,21 @@ public class Levels implements ScreenManager {
         Physics.configure(0, -10);
 
         // create hero, set camera to follow, and set jumping impulses
-        Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Complete.png");
+        float hx, hy;
+        switch (whichLevel) {
+            case 4:
+                hx = 4;
+                hy = 5;
+                break;
+            case 5:
+                hx = 4;
+                hy = 5;
+                break;
+            default:
+                hx = 4;
+                hy = 5;
+        }
+        Hero h = Hero.makeAsBox(hx, hy, 3, 5, "HarambeArt/Harambe Complete.png");
         Level.setCameraChase(h);
         h.setJumpImpulses(0, 14);
 
