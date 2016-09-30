@@ -123,7 +123,7 @@ public class Levels implements ScreenManager {
             Enemy.makeAsBox(120, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
-            Obstacle f = Obstacle.makeAsBox(138, 5, 3, 5, "HarambeArt/mard.png");
+            Obstacle f = Obstacle.makeAsBox(138, 5, 2, 3, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
@@ -155,7 +155,7 @@ public class Levels implements ScreenManager {
             Enemy.makeAsBox(120, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
-            Obstacle f = Obstacle.makeAsBox(138, 5, 3, 5, "HarambeArt/mard.png");
+            Obstacle f = Obstacle.makeAsBox(138, 5, 2, 3, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
@@ -194,7 +194,7 @@ public class Levels implements ScreenManager {
             gg.setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
-            Obstacle f = Obstacle.makeAsBox(138, 5, 3, 5, "HarambeArt/mard.png");
+            Obstacle f = Obstacle.makeAsBox(138, 5, 2, 3, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
@@ -235,7 +235,7 @@ public class Levels implements ScreenManager {
             Enemy.makeAsBox(135, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
-            Obstacle f = Obstacle.makeAsBox(138, 23, 3, 5, "HarambeArt/mard.png");
+            Obstacle f = Obstacle.makeAsBox(138, 23, 2, 3, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
@@ -276,7 +276,7 @@ public class Levels implements ScreenManager {
             Enemy.makeAsBox(135, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
-            Obstacle f = Obstacle.makeAsBox(138, 23, 3, 5, "HarambeArt/mard.png");
+            Obstacle f = Obstacle.makeAsBox(138, 23, 2, 3, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
