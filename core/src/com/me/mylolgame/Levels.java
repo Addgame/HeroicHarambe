@@ -112,6 +112,9 @@ public class Levels implements ScreenManager {
             // set level music
             Level.setMusic("Music/Bosses/Boss 01.ogg");
 
+            // add background
+            Background.addHorizontalLayer(0,0, "HarambeArt/Platform/Canada.png", -16, 48, 32);
+
             // create level borders
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Canada Repeat Platform.png", 1, 0, 1);
 
@@ -141,6 +144,9 @@ public class Levels implements ScreenManager {
 
             // set level music
             Level.setMusic("Music/Bosses/Boss 02.ogg");
+
+            // add background
+            Background.addHorizontalLayer(0,0, "HarambeArt/Platform/Detroid.png", -16, 48, 32);
 
             // create level borders
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
@@ -173,6 +179,9 @@ public class Levels implements ScreenManager {
 
             // set level music
             Level.setMusic("Music/Bosses/Boss 04.ogg");
+
+            // add background
+            Background.addHorizontalLayer(0,0, "HarambeArt/Platform/mexico.png", -16, 48, 32);
 
             // create level borders
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
@@ -211,6 +220,9 @@ public class Levels implements ScreenManager {
 
             // set level music
             Level.setMusic("Music/Bosses/Boss 01.ogg");
+
+            // add background
+            Background.addHorizontalLayer(0,0, "HarambeArt/Platform/Japan.png", -16, 48, 32);
 
             // create level borders
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
@@ -252,6 +264,9 @@ public class Levels implements ScreenManager {
 
             // set level music
             Level.setMusic("Music/Bosses/Boss 03 (Final).ogg");
+
+            // add background
+            Background.addHorizontalLayer(0,0, "HarambeArt/Platform/cincinatti.png", -16, 48, 32);
 
             // create level borders
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
