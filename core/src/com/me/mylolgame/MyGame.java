@@ -118,9 +118,15 @@ public class MyGame extends Lol {
         Media.registerImage("HarambeArt/Platform/Cincinatti Repeat Platform.png");
         Media.registerImage("HarambeArt/Platform/Detroid Repeat Platform.png");
         Media.registerImage("HarambeArt/Platform/Mexico Repeat Platform.png");
-        Media.registerImage("HarambeArt/Harambe Arm(back).png");
-        Media.registerImage("HarambeArt/Harambe Body(back).png");
-        Media.registerImage("HarambeArt/Harambe Complete(back).png");
+        Media.registerImage("HarambeArt/Characters(Good)/businessmanS.png");
+        Media.registerImage("HarambeArt/Characters(Good)/businessmanW.png");
+        Media.registerImage("HarambeArt/Characters(Good)/doctorS.png");
+        Media.registerImage("HarambeArt/Characters(Good)/doctorW.png");
+        Media.registerImage("HarambeArt/Characters(Good)/lehighS.png");
+        Media.registerImage("HarambeArt/Characters(Good)/lehighW.png");
+        Media.registerImage("HarambeArt/Characters(Good)/soldierS.png");
+        Media.registerImage("HarambeArt/Characters(Good)/soldierW.png");
+
 
         // load the image we show on the main screen
         Media.registerImage("splash.png");

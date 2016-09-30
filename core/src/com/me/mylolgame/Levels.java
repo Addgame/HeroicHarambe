@@ -51,6 +51,7 @@ import edu.lehigh.cse.lol.PreScene;
 import edu.lehigh.cse.lol.ProjectilePool;
 import edu.lehigh.cse.lol.Route;
 import edu.lehigh.cse.lol.Score;
+import edu.lehigh.cse.lol.ScoreHack;
 import edu.lehigh.cse.lol.ScreenManager;
 import edu.lehigh.cse.lol.Svg;
 import edu.lehigh.cse.lol.Tilt;
@@ -76,7 +77,7 @@ public class Levels implements ScreenManager {
         Physics.configure(0, -10);
 
         // create hero, set camera to follow, and set jumping impulses
-        float hx, hy;
+        float hx, hy; // hero's x and y coords based on current level
         switch (whichLevel) {
             case 4:
                 hx = 2;
@@ -90,7 +91,8 @@ public class Levels implements ScreenManager {
                 hx = 4;
                 hy = 5;
         }
-        Hero h = Hero.makeAsBox(hx, hy, 3, 5, "HarambeArt/Harambe Complete.png");
+        //Hero h = Hero.makeAsBox(hx, hy, 3, 5, "HarambeArt/Harambe Complete.png");
+        Hero h = Hero.makeAsBox(hx, hy, 3, 4.95f, "HarambeArt/Harambe Complete.png");
         Level.setCameraChase(h);
         h.setJumpImpulses(0, 14);
 
@@ -116,17 +118,17 @@ public class Levels implements ScreenManager {
             Obstacle.makeAsBox(60, 11, 16, 3, "HarambeArt/Platform/Canada Repeat Platform.png");
 
             // create enemies
-            Enemy.makeAsBox(68, 14, 3, 5, "HarambeArt/guy.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(45, 5, 3, 5, "HarambeArt/guy.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(120, 5, 3, 5, "HarambeArt/guy.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(68, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(45, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(120, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
-            Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
+            Obstacle f = Obstacle.makeAsBox(138, 5, 3, 5, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
                         public void onEvent() {
-                            if (Score.getEnemiesDefeated() == 3) {
+                            if (Score.getEnemiesDefeated() == ScoreHack.getEnemiesCreated()) {
                                 Score.winLevel();
                             }
                         }
@@ -148,12 +150,12 @@ public class Levels implements ScreenManager {
             Obstacle.makeAsBox(60, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
 
             // create enemies
-            Enemy.makeAsBox(45, 14, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(88, 14, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(45, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(88, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(120, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
-            Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
+            Obstacle f = Obstacle.makeAsBox(138, 5, 3, 5, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
@@ -180,19 +182,19 @@ public class Levels implements ScreenManager {
             Obstacle.makeAsBox(60, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
 
             // create enemies
-            Enemy e = Enemy.makeAsBox(35, 14, 5, 5, "HarambeArt/pistol guy1.png");
+            Enemy e = Enemy.makeAsBox(35, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy ee = Enemy.makeAsBox(90, 21, 5, 5, "HarambeArt/pistol guy1.png");
+            Enemy ee = Enemy.makeAsBox(90, 21, 3, 6, "HarambeArt/Characters(Good)/soldierS.png");
             ee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/pistol guy1.png");
+            Enemy eee = Enemy.makeAsBox(120, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png");
             eee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy g = Enemy.makeAsBox(53, 5, 5, 5, "HarambeArt/pistol guy1.png");
+            Enemy g = Enemy.makeAsBox(53, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png");
             g.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy gg = Enemy.makeAsBox(71, 5, 5, 5, "HarambeArt/pistol guy1.png");
+            Enemy gg = Enemy.makeAsBox(71, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png");
             gg.setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
-            Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
+            Obstacle f = Obstacle.makeAsBox(138, 5, 3, 5, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
@@ -222,18 +224,18 @@ public class Levels implements ScreenManager {
             Obstacle.makeAsBox(110, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
 
             // create enemies
-            Enemy.makeAsBox(43, 14, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(6, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(25, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(60, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(77, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(102, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(84, 25, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(91, 25, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(135, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(43, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(6, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(25, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(60, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(77, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(102, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(84, 25, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(91, 25, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(135, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
-            Obstacle f = Obstacle.makeAsBox(138, 23, 4, 2, "HarambeArt/book.png");
+            Obstacle f = Obstacle.makeAsBox(138, 23, 3, 5, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
@@ -263,10 +265,18 @@ public class Levels implements ScreenManager {
             Obstacle.makeAsBox(36, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
 
             // create enemies
-
+            Enemy.makeAsBox(43, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(6, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(25, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(60, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(77, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(102, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(84, 25, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(91, 25, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(135, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
-            Obstacle f = Obstacle.makeAsBox(138, 23, 4, 2, "HarambeArt/book.png");
+            Obstacle f = Obstacle.makeAsBox(138, 23, 3, 5, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
