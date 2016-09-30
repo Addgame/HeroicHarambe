@@ -435,7 +435,10 @@ public class Control {
                     long now = System.currentTimeMillis();
                     if (mLastThrow + milliDelay < now) {
                         mLastThrow = now;
-                        Lol.sGame.mCurrentLevel.mProjectilePool.throwFixed(h, offsetX, offsetY, velocityX, velocityY);
+                        if (h.mAnimator.mCurrentAnimation == h.mDefaultAnimation)
+                            Lol.sGame.mCurrentLevel.mProjectilePool.throwFixed(h, offsetX, offsetY, velocityX, velocityY);
+                        else
+                            Lol.sGame.mCurrentLevel.mProjectilePool.throwFixed(h, -offsetX, offsetY, -velocityX, velocityY);
                     }
                 }
             }

@@ -183,5 +183,6 @@ public class MyGame extends Lol {
         Media.registerMusic("Music/Effects/Run.ogg", true);
         Media.registerMusic("Music/Effects/Throwing.ogg", true);
         Media.registerMusic("Music/Effects/Woman Crying.ogg", true);
+        Media.registerMusic("Music/BGM/BGM (Menu).ogg", true);
     }
 }
