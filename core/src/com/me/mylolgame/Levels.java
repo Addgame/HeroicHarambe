@@ -95,6 +95,8 @@ public class Levels implements ScreenManager {
         Hero h = Hero.makeAsBox(hx, hy, 3, 4.95f, "HarambeArt/Harambe Complete.png");
         Level.setCameraChase(h);
         h.setJumpImpulses(0, 14);
+        h.setDefaultReverseAnimation(new Animation("HarambeArt/Harambe Walk/BackwardAnim.png", 3, true).to(0, 100).to(2, 80).to(1, 100));//.to(2, 80));
+        h.setDefaultAnimation(new Animation("HarambeArt/Harambe Walk/ForwardAnim.png", 3, true).to(0, 100).to(2, 80).to(1, 100));//.to(2, 80));
 
         // set projectiles
         ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
