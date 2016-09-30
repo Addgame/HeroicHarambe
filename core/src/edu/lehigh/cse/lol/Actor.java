@@ -510,13 +510,14 @@ public abstract class Actor implements Renderable {
      * @param elasticity New elasticity of the actor
      * @param friction   New friction of the actor
      */
-    public void setPhysics(float density, float elasticity, float friction) {
+    public Actor setPhysics(float density, float elasticity, float friction) {
         for (Fixture f : mBody.getFixtureList()) {
             f.setDensity(density);
             f.setRestitution(elasticity);
             f.setFriction(friction);
         }
         mBody.resetMassData();
+        return this;
     }
 
     /**
