@@ -106,6 +106,7 @@ public class Levels implements ScreenManager {
         Control.addLeftButton(80, 18, 75, 75, "HarambeArt/Left.png", 20, h);
         Control.addRightButton(230, 18, 75, 75, "HarambeArt/Right.png", 20, h);
 
+
         if (whichLevel == 1) {
 
             // set level music
