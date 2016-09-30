@@ -58,7 +58,7 @@ public class Splash implements ScreenManager {
         Util.drawPicture(0, 0, 48, 32, "splash.png", 0);
 
         // start the music
-        Level.setMusic("tune.ogg");
+        Level.setMusic("Music/BGM/BGM (Menu).ogg");
 
         // This is the Play button... it switches to the first screen of the
         // level chooser. You could jump straight to the first level by using
