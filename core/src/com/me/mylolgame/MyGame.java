@@ -59,9 +59,9 @@ public class MyGame extends Lol {
         mDefaultFontRed = 0;
         mDefaultFontGreen = 0;
         mDefaultFontBlue = 0;
-        mDefaultWinText = "Good Job";
-        mDefaultLoseText = "Try Again";
-        mGameTitle = "My Lol Game";
+        mDefaultWinText = "Harambe Wins";
+        mDefaultLoseText = "Harambe Never Gives Up";
+        mGameTitle = "Heroic Harambe";
         mEnableChooser = true;
 
         // don't change these lines unless you know what you are doing
@@ -126,8 +126,8 @@ public class MyGame extends Lol {
         Media.registerImage("HarambeArt/Characters(Good)/lehighW.png");
         Media.registerImage("HarambeArt/Characters(Good)/soldierS.png");
         Media.registerImage("HarambeArt/Characters(Good)/soldierW.png");
-        Media.registerImage("HarambeArt/Harambe Walk/BackwardAnim.png");
-        Media.registerImage("HarambeArt/Harambe Walk/ForwardAnim.png");
+        Media.registerAnimatableImage("HarambeArt/Harambe Walk/BackwardAnim.png", 3, 1);
+        Media.registerAnimatableImage("HarambeArt/Harambe Walk/ForwardAnim.png", 3, 1);
         Media.registerImage("HarambeArt/Harambe Walk/Harambe Complete (Backward).png");
         Media.registerImage("HarambeArt/Harambe Walk/harambeW1(backward).png");
         Media.registerImage("HarambeArt/Harambe Walk/harambeW2(backward).png");
