@@ -74,7 +74,7 @@ public class Levels implements ScreenManager {
 
         // set up level size and physics
         Level.configure(3 * 48, 32);
-        Physics.configure(0, -10);
+        Physics.configure(0, -30);
 
         // create hero, set camera to follow, and set jumping impulses
         float hx, hy; // hero's x and y coords based on current level
@@ -85,7 +85,7 @@ public class Levels implements ScreenManager {
                 break;
             case 5:
                 hx = 72;
-                hy = 25;
+                hy = 25.5f;
                 break;
             default:
                 hx = 4;
@@ -94,7 +94,7 @@ public class Levels implements ScreenManager {
         //Hero h = Hero.makeAsBox(hx, hy, 3, 5, "HarambeArt/Harambe Complete.png");
         Hero h = Hero.makeAsBox(hx, hy, 3, 4.95f, "HarambeArt/Harambe Complete.png");
         Level.setCameraChase(h);
-        h.setJumpImpulses(0, 14);
+        h.setJumpImpulses(0, 25);
 
         // set projectiles
         ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
@@ -271,21 +271,20 @@ public class Levels implements ScreenManager {
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
 
             // create platforms
-            Obstacle.makeAsBox(66, 23, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(66, 23.5f, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(11, 11, 13, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(117, 19, 6, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(52, 11, 13, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(82, 11, 13, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(122, 11, 13, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
-            Obstacle.makeAsBox(130, 23, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(130, 21, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(71.5f, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
             Obstacle.makeAsBox(36, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
             Obstacle.makeAsBox(109, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
 
             // create enemies
-            Enemy.makeAsBox(84, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(90, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(54, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(60, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(65, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(50, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(16, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
@@ -295,12 +294,11 @@ public class Levels implements ScreenManager {
             Enemy.makeAsBox(89, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(126, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(138, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(127, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(137, 26, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
-
+            Enemy.makeAsBox(129, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(137, 24, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
-            Obstacle f = Obstacle.makeAsBox(141, 25.5f, 2, 3, "HarambeArt/mard.png");
+            Obstacle f = Obstacle.makeAsBox(141, 24, 2, 3, "HarambeArt/mard.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
