@@ -126,6 +126,13 @@ public class MyGame extends Lol {
         Media.registerImage("HarambeArt/Characters(Good)/lehighW.png");
         Media.registerImage("HarambeArt/Characters(Good)/soldierS.png");
         Media.registerImage("HarambeArt/Characters(Good)/soldierW.png");
+        Media.registerImage("HarambeArt/Harabe Walk/BackwardAnim.png");
+        Media.registerImage("HarambeArt/Harabe Walk/ForwardAnim.png");
+        Media.registerImage("HarambeArt/Harabe Walk/Harambe Complete (Backward).png");
+        Media.registerImage("HarambeArt/Harabe Walk/harambeW1(backward).png");
+        Media.registerImage("HarambeArt/Harabe Walk/harambeW2(backward).png");
+        Media.registerImage("HarambeArt/Harabe Walk/harambeW1.png");
+        Media.registerImage("HarambeArt/Harabe Walk/harambeW2.png");
 
 
         // load the image we show on the main screen
