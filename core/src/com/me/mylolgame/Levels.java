@@ -79,8 +79,8 @@ public class Levels implements ScreenManager {
         float hx, hy;
         switch (whichLevel) {
             case 4:
-                hx = 4;
-                hy = 5;
+                hx = 2;
+                hy = 23;
                 break;
             case 5:
                 hx = 4;
@@ -169,51 +169,17 @@ public class Levels implements ScreenManager {
         else if (whichLevel == 3) {
 
             // set level music
-
-            // create level borders
-
-            // create platforms
-
-            // create enemies
-
-            // create level end
-
-        }
-    }
-}
-        /*
-         * In this level, we change the physics from level 2 so that things roll
-         * and bounce a little bit more nicely.
-         */
-
-        /*else if (whichLevel == 3) {
-            // set background music
-            Level.configure(3*48, 32);
-            // there is no default gravitational force
-            Physics.configure(0, -10);
-
             Level.setMusic("Music/Bosses/Boss 04.ogg");
 
-            // in this level, we'll use tilt to move some things around. The
-            // maximum force that tilt can exert on anything is +/- 10 in the X
-            // dimension, and +/- 10 in the Y dimension
-
+            // create level borders
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
-            // now let's create a hero, and indicate that the hero can move by
-            // tilting the phone. "greenball.png" must be registered in
-            // the registerMedia() method, which is also in this file. It must
-            // also be in your android game's assets folder.
-            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Complete.png");
 
-            Level.setCameraChase(h);
-            // draw a circular destination, and indicate that the level is won
-            // when the hero reaches the destination. "mustardball.png" must be
-            // registered in registerMedia()
-
+            // create platforms
             Obstacle.makeAsBox(30, 11, 16, 3, "HarambeArt/Platform/Mexico Repeat Platform.png");
             Obstacle.makeAsBox(80, 18, 16, 3, "HarambeArt/Platform/Mexico Repeat Platform.png");
             Obstacle.makeAsBox(60, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
 
+            // create enemies
             Enemy e = Enemy.makeAsBox(35, 14, 5, 5, "HarambeArt/pistol guy1.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
             Enemy ee = Enemy.makeAsBox(90, 21, 5, 5, "HarambeArt/pistol guy1.png");
@@ -224,6 +190,8 @@ public class Levels implements ScreenManager {
             g.setPhysics(1.0f, 0.3f, 0.6f);
             Enemy gg = Enemy.makeAsBox(71, 5, 5, 5, "HarambeArt/pistol guy1.png");
             gg.setPhysics(1.0f, 0.3f, 0.6f);
+
+            // create level end
             Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
@@ -235,19 +203,95 @@ public class Levels implements ScreenManager {
                         }
                     }
             );
-
-            ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
-            ProjectilePool.setRange(30);
-            Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 500, 3, 2.5f, 30, 0);
-            Level.setCameraChase(h);
-            h.setJumpImpulses(0, 14);
-            Control.addJumpButton(800, 18, 75, 75, "HarambeArt/Jump.png", h);
-
-            Control.addLeftButton(80,18, 75, 75, "HarambeArt/Left.png", 20, h);
-            Control.addRightButton(230,18, 75, 75, "HarambeArt/Right.png", 20, h);
-
-            Score.setVictoryEnemyCount();
         }
+        else if (whichLevel == 4) {
+
+            // set level music
+
+            // create level borders
+            Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
+
+            // create platforms
+            Obstacle.makeAsBox(0, 22, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(35, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(80, 22, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(105, 11, 4, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(115, 11, 4, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(130, 20, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(65, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
+            Obstacle.makeAsBox(110, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
+
+            // create enemies
+            Enemy.makeAsBox(43, 14, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(6, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(25, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(60, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(77, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(102, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(84, 25, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(91, 25, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(135, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+
+            // create level end
+            Obstacle f = Obstacle.makeAsBox(138, 23, 4, 2, "HarambeArt/book.png");
+            f.setPhysics(1.0f, 0.3f, 0.6f);
+            f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
+                        @Override
+                        public void onEvent() {
+                            if (Score.getEnemiesDefeated() == 5) {
+                                Score.winLevel();
+                            }
+                        }
+                    }
+            );
+        }
+        else if (whichLevel == 5) {
+
+            // set level music
+
+            // create level borders
+            Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
+
+            // create platforms
+            Obstacle.makeAsBox(0, 22, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(35, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(80, 22, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(105, 11, 4, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(115, 11, 4, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(130, 20, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(65, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
+            Obstacle.makeAsBox(110, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
+
+            // create enemies
+            Enemy.makeAsBox(43, 14, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(6, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(25, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(60, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(77, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(102, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(84, 25, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(91, 25, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(135, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+
+            // create level end
+            Obstacle f = Obstacle.makeAsBox(138, 23, 4, 2, "HarambeArt/book.png");
+            f.setPhysics(1.0f, 0.3f, 0.6f);
+            f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
+                        @Override
+                        public void onEvent() {
+                            if (Score.getEnemiesDefeated() == 5) {
+                                Score.winLevel();
+                            }
+                        }
+                    }
+            );
+        }
+        /*
+         * In this level, we change the physics from level 2 so that things roll
+         * and bounce a little bit more nicely.
+         */
+
+/*
 
         *//*
          * It's confusing to have multiple heroes in a level, but we can... this
@@ -3780,7 +3824,6 @@ public class Levels implements ScreenManager {
             trigger.setHeroCollisionCallback(0,0,0,0,0,lc);
             // No transfer of momeuntum when the hero collides with the trigger
             trigger.setCollisionsEnabled(false);
-        }
+        }*/
     }
 }
-*/
