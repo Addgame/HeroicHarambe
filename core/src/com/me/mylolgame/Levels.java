@@ -51,6 +51,7 @@ import edu.lehigh.cse.lol.PreScene;
 import edu.lehigh.cse.lol.ProjectilePool;
 import edu.lehigh.cse.lol.Route;
 import edu.lehigh.cse.lol.Score;
+import edu.lehigh.cse.lol.ScoreHack;
 import edu.lehigh.cse.lol.ScreenManager;
 import edu.lehigh.cse.lol.Svg;
 import edu.lehigh.cse.lol.Tilt;
@@ -76,7 +77,7 @@ public class Levels implements ScreenManager {
         Physics.configure(0, -10);
 
         // create hero, set camera to follow, and set jumping impulses
-        float hx, hy;
+        float hx, hy; // hero's x and y coords based on current level
         switch (whichLevel) {
             case 4:
                 hx = 2;
@@ -90,7 +91,8 @@ public class Levels implements ScreenManager {
                 hx = 4;
                 hy = 5;
         }
-        Hero h = Hero.makeAsBox(hx, hy, 3, 5, "HarambeArt/Harambe Complete.png");
+        //Hero h = Hero.makeAsBox(hx, hy, 3, 5, "HarambeArt/Harambe Complete.png");
+        Hero h = Hero.makeAsBox(hx, hy, 3, 4.95f, "HarambeArt/Harambe Complete.png");
         Level.setCameraChase(h);
         h.setJumpImpulses(0, 14);
 
@@ -126,7 +128,7 @@ public class Levels implements ScreenManager {
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
                         public void onEvent() {
-                            if (Score.getEnemiesDefeated() == 3) {
+                            if (Score.getEnemiesDefeated() == ScoreHack.getEnemiesCreated()) {
                                 Score.winLevel();
                             }
                         }
