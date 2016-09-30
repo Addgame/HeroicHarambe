@@ -209,6 +209,7 @@ public class Levels implements ScreenManager {
         else if (whichLevel == 4) {
 
             // set level music
+            Level.setMusic("Music/Bosses/Boss 01.ogg");
 
             // create level borders
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
@@ -249,6 +250,7 @@ public class Levels implements ScreenManager {
         } else if (whichLevel == 5) {
 
             // set level music
+            Level.setMusic("Music/Bosses/Boss 03 (Final).ogg");
 
             // create level borders
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
