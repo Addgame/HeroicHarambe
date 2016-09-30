@@ -193,7 +193,7 @@ public class Levels implements ScreenManager {
 
             Obstacle.makeAsBox(39, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(80, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
-            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Lamp Post.png");
+            Obstacle.makeAsBox(60, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
 
             Enemy e = Enemy.makeAsBox(45, 14, 5, 5, "HarambeArt/knife guy1.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
@@ -256,7 +256,7 @@ public class Levels implements ScreenManager {
 
             Obstacle.makeAsBox(30, 11, 16, 3, "HarambeArt/Platform/Mexico Repeat Platform.png");
             Obstacle.makeAsBox(80, 18, 16, 3, "HarambeArt/Platform/Mexico Repeat Platform.png");
-            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Lamp Post.png");
+            Obstacle.makeAsBox(60, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
 
             Enemy e = Enemy.makeAsBox(35, 14, 5, 5, "HarambeArt/pistol guy1.png");
             e.setPhysics(1.0f, 0.3f, 0.6f);
@@ -319,16 +319,21 @@ public class Levels implements ScreenManager {
             // registered in registerMedia()
 
             Obstacle.makeAsBox(0, 22, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
-            Obstacle.makeAsBox(80, 18, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
-            Obstacle.makeAsBox(60, 5, 4, 12, "HarambeArt/Lamp Post.png");
+            Obstacle.makeAsBox(35, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(80, 22, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(105, 11, 4, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(115, 11, 4, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(130, 20, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(65, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
+            Obstacle.makeAsBox(110, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
 
-            Enemy.makeAsBox(35, 14, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(90, 21, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(43, 14, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(90, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(53, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(71, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
 
-            Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
+            Obstacle f = Obstacle.makeAsBox(138, 23, 4, 2, "HarambeArt/book.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
                         @Override
