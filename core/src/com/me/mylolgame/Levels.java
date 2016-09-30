@@ -75,45 +75,38 @@ public class Levels implements ScreenManager {
          * make it to the destination (a mustard colored ball). The game is
          * configured to use tilt to control the hero.
          */
+        Level.configure(3*48, 32);
+        Physics.configure(0, -10);
+
+        Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Complete.png");
+        Level.setCameraChase(h);
+        h.setJumpImpulses(0, 14);
+
+        ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
+        ProjectilePool.setRange(30);
+
+        Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 500, 3, 2.5f, 30, 0);
+        Control.addJumpButton(800, 18, 75, 75, "HarambeArt/Jump.png", h);
+        Control.addLeftButton(80,18, 75, 75, "HarambeArt/Left.png", 20, h);
+        Control.addRightButton(230,18, 75, 75, "HarambeArt/Right.png", 20, h);
+
         if (whichLevel == 1) {
-            // set background music
 
-            // set the screen to 48 meters wide by 32 meters high... this is
-            // important, because Config.java says the screen is 480x320, and
-            // LOL likes a 20:1 pixel to meter ratio. If we went smaller than
-            // 48x32, things would get really weird. And, of course, if you make
-            // your screen resolution higher in Config.java, these numbers would
-            // need to get bigger.
-            //
-            // Level.configure MUST BE THE FIRST LINE WHEN DRAWING A LEVEL!!!
-            Level.configure(3*48, 32);
-            // there is no default gravitational force
-            Physics.configure(0, -10);
-
+            // set level music
             Level.setMusic("Music/Bosses/Boss 01.ogg");
 
-            // in this level, we'll use tilt to move some things around. The
-            // maximum force that tilt can exert on anything is +/- 10 in the X
-            // dimension, and +/- 10 in the Y dimension
-
+            // create level borders
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Canada Repeat Platform.png", 1, 0, 1);
-            // now let's create a hero, and indicate that the hero can move by
-            // tilting the phone. "greenball.png" must be registered in
-            // the registerMedia() method, which is also in this file. It must
-            // also be in your android game's assets folder.
-            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Complete.png");
 
-            Level.setCameraChase(h);
-            // draw a circular destination, and indicate that the level is won
-            // when the hero reaches the destination. "mustardball.png" must be
-            // registered in registerMedia()
-            Obstacle o = Obstacle.makeAsBox(60, 11, 16, 3, "HarambeArt/Platform/Canada Repeat Platform.png");
+            // create platform
+            Obstacle.makeAsBox(60, 11, 16, 3, "HarambeArt/Platform/Canada Repeat Platform.png");
 
+            // create enemies
             Enemy.makeAsBox(68, 14, 3, 5, "HarambeArt/guy.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy ee = Enemy.makeAsBox(45, 5, 3, 5, "HarambeArt/guy.png");
-            ee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy eee = Enemy.makeAsBox(120, 5, 3, 5, "HarambeArt/guy.png");
-            eee.setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(45, 5, 3, 5, "HarambeArt/guy.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(120, 5, 3, 5, "HarambeArt/guy.png").setPhysics(1.0f, 0.3f, 0.6f);
+
+            // create level end
             Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
@@ -127,80 +120,27 @@ public class Levels implements ScreenManager {
             );
 
 
-            ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
-            ProjectilePool.setRange(30);
-            Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 500, 3, 2.5f, 30, 0);
-            Level.setCameraChase(h);
-            h.setJumpImpulses(0, 14);
-            Control.addJumpButton(800, 18, 75, 75, "HarambeArt/Jump.png", h);
 
-            Control.addLeftButton(80,18, 75, 75, "HarambeArt/Left.png", 20, h);
-            Control.addRightButton(230,18, 75, 75, "HarambeArt/Right.png", 20, h);
         }
-
-        /*
-         * In this level, we make the play a bit smoother by adding a bounding
-         * box and changing the way that LibLOL interacts with the player
-         */
-       /* else if (whichLevel == 2) {
-            // start by setting everything up just like in level 1
-            Level.configure(48, 32);
-            Physics.configure(0, 0);
-            Tilt.enable(10, 10);
-            Hero h = Hero.makeAsCircle(4, 17, 3, 3, "greenball.png");
-            h.setMoveByTilting();
-            Destination.makeAsCircle(29, 26, 2, 2, "mustardball.png");
-            Score.setVictoryDestination(1);
-
-            // add a bounding box so the hero can't fall off the screen
-            Util.drawBoundingBox(0, 0, 48, 32, "red.png", 0, 0, 0);
-
-            // change the text that we display when the level is won
-            WinScene.get().setDefaultWinText("Good job!");
-
-            // add a pop-up message that shows for one second at the
-            // beginning of the level. The '50, 50' indicates the bottom left
-            // corner of the text we display. 255,255,255 represents the red,
-            // green, and blue components of the text color (the color will be
-            // white). We'll write our text in the Arial font, with a size of 32
-            // pt. The "\n" in the middle of the text causes a line break. Note
-            // that "arial.ttf" must be in your android game's assets folder.
-            PreScene.get().addText("Reach the destination\nto win this level.", 50, 50, 255, 255, 255, "arial.ttf", 32);
-        }*/
         else if (whichLevel == 2) {
-            // set background music
 
-            Level.configure(3*48, 32);
-            // there is no default gravitational force
-            Physics.configure(0, -10);
-
-            // in this level, we'll use tilt to move some things around. The
-            // maximum force that tilt can exert on anything is +/- 10 in the X
-            // dimension, and +/- 10 in the Y dimension
-
+            // set level music
             Level.setMusic("Music/Bosses/Boss 02.ogg");
+
+            // create level borders
             Util.drawBoundingBox(0, 5, 3 * 48, 32, "HarambeArt/Platform/Detroid Repeat Platform.png", 1, 0, 1);
-            // now let's create a hero, and indicate that the hero can move by
-            // tilting the phone. "greenball.png" must be registered in
-            // the registerMedia() method, which is also in this file. It must
-            // also be in your android game's assets folder.
-            Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Complete.png");
 
-            Level.setCameraChase(h);
-            // draw a circular destination, and indicate that the level is won
-            // when the hero reaches the destination. "mustardball.png" must be
-            // registered in registerMedia()
-
+            // create platforms
             Obstacle.makeAsBox(39, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(80, 11, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(60, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
 
-            Enemy e = Enemy.makeAsBox(45, 14, 5, 5, "HarambeArt/knife guy1.png");
-            e.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy ee = Enemy.makeAsBox(88, 14, 5, 5, "HarambeArt/knife guy1.png");
-            ee.setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy eee = Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/knife guy1.png");
-            eee.setPhysics(1.0f, 0.3f, 0.6f);
+            // create enemies
+            Enemy.makeAsBox(45, 14, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(88, 14, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+            Enemy.makeAsBox(120, 5, 5, 5, "HarambeArt/knife guy1.png").setPhysics(1.0f, 0.3f, 0.6f);
+
+            // create level end
             Obstacle f = Obstacle.makeAsBox(138, 5, 4, 2, "HarambeArt/book.png");
             f.setPhysics(1.0f, 0.3f, 0.6f);
             f.setHeroCollisionCallback(0, 0, 0, 0, 0, new LolCallback() {
@@ -213,24 +153,13 @@ public class Levels implements ScreenManager {
                     }
             );
 
-            ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
-            ProjectilePool.setRange(30);
-            Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 500, 3, 2.5f, 30, 0);
-            Level.setCameraChase(h);
-            h.setJumpImpulses(0, 14);
-            Control.addJumpButton(800, 18, 75, 75, "HarambeArt/Jump.png", h);
-
-            Control.addLeftButton(80,18, 75, 75, "HarambeArt/Left.png", 20, h);
-            Control.addRightButton(230,18, 75, 75, "HarambeArt/Right.png", 20, h);
-
-            Score.setVictoryEnemyCount();
-        }
+        }}}
         /*
          * In this level, we change the physics from level 2 so that things roll
          * and bounce a little bit more nicely.
          */
 
-        else if (whichLevel == 3) {
+        /*else if (whichLevel == 3) {
             // set background music
             Level.configure(3*48, 32);
             // there is no default gravitational force
@@ -293,10 +222,10 @@ public class Levels implements ScreenManager {
             Score.setVictoryEnemyCount();
         }
 
-        /*
+        *//*
          * It's confusing to have multiple heroes in a level, but we can... this
          * shows how to have multiple destinations and heroes
-         */
+         *//*
         else if (whichLevel == 4) {
             Level.configure(3*48, 32);
             // there is no default gravitational force
@@ -358,10 +287,10 @@ public class Levels implements ScreenManager {
             Score.setVictoryEnemyCount();
         }
 
-        /*
+        *//*
          * This level demonstrates that we can have many heroes that can reach
          * the same destination. It also shows our first sound effect
-         */
+         *//*
         else if (whichLevel == 5) {
             // standard stuff...
             Level.configure(48, 32);
@@ -389,11 +318,11 @@ public class Levels implements ScreenManager {
             Score.setVictoryDestination(2);
         }
 
-        /*
+        *//*
          * Tilt can be used to control velocity, instead of applying forces to
          * the entities on the screen. It doesn't always work well, but it's a
          * nice option to have...
-         */
+         *//*
         else if (whichLevel == 6) {
             // standard stuff...
             Level.configure(48, 32);
@@ -410,10 +339,10 @@ public class Levels implements ScreenManager {
             Tilt.setAsVelocity(true);
         }
 
-        /*
+        *//*
          * This level adds an enemy, to demonstrate that we can make it possible
          * to lose a level
-         */
+         *//*
         else if (whichLevel == 7) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -436,10 +365,10 @@ public class Levels implements ScreenManager {
             LoseScene.get().disable();
         }
 
-        /*
+        *//*
          * This level explores a bit more of what we can do with enemies, by
          * having an enemy with a fixed path.
-         */
+         *//*
         else if (whichLevel == 8) {
             // configure a basic level, just like the start of level 2:
             Level.configure(48, 32);
@@ -470,9 +399,9 @@ public class Levels implements ScreenManager {
             // displayed on a PostScene
         }
 
-        /*
+        *//*
          * This level explores a bit more of what we can do with paths.
-         */
+         *//*
         else if (whichLevel == 9) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -495,10 +424,10 @@ public class Levels implements ScreenManager {
             // extremely complex Routes!
         }
 
-        /*
+        *//*
          * We can make enemies move via tilt. We can also configure some other
          * kinds of sounds
-         */
+         *//*
         else if (whichLevel == 10) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -531,11 +460,11 @@ public class Levels implements ScreenManager {
             LoseScene.get().setDefaultText("Better luck next time...");
         }
 
-        /*
+        *//*
          * This shows that it is possible to make a level that is larger than a
          * screen. It also shows that there is a "heads up display" that can be
          * used for providing information and touchable controls
-         */
+         *//*
         else if (whichLevel == 11) {
             // make the level really big
             Level.configure(400, 300);
@@ -567,10 +496,10 @@ public class Levels implements ScreenManager {
             PreScene.get().addText("Press left to zoom out\nright to zoom in", 255, 255, 255, "arial.ttf", 32);
         }
 
-        /*
+        *//*
          * this level introduces obstacles, and also shows the difference
          * between "box" and "circle" physics
-         */
+         *//*
         else if (whichLevel == 12) {
             // configure a basic level
             Level.configure(48, 32);
@@ -611,10 +540,10 @@ public class Levels implements ScreenManager {
                     32);
         }
 
-        /*
+        *//*
          * this level just plays around with physics a little bit, to show how
          * friction and elasticity can do interesting things.
-         */
+         *//*
         else if (whichLevel == 13) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -635,12 +564,12 @@ public class Levels implements ScreenManager {
             o2.setPhysics(10, 0, 100);
         }
 
-        /*
+        *//*
          * This level introduces goodies. Goodies are something that we collect.
          * We can make the collection of goodies lead to changes in the behavior
          * of the game, and in this example, the collection of goodies "enables"
          * a destination.
-         */
+         *//*
         else if (whichLevel == 14) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -677,11 +606,11 @@ public class Levels implements ScreenManager {
             Display.addGoodieCount(1, 2, " Goodies", 220, 280, "arial.ttf", 255, 0, 255, 20);
         }
 
-        /*
+        *//*
          * earlier, we saw that enemies could move along a Route. So can any
          * other entity, so we'll move destinations, goodies, and obstacles,
          * too.
-         */
+         *//*
         else if (whichLevel == 15) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -713,11 +642,11 @@ public class Levels implements ScreenManager {
             Display.addGoodieCount(1, 0, " Goodies", 220, 280, "arial.ttf", 60, 70, 255, 12);
         }
 
-        /*
+        *//*
          * Sometimes, we don't want a destination, we just want to say that the
          * player wins by collecting enough goodies. This level also shows that
          * we can set a time limit for the level, and we can pause the game.
-         */
+         *//*
         else if (whichLevel == 16) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -752,13 +681,13 @@ public class Levels implements ScreenManager {
             Control.addPauseButton(0, 300, 20, 20, "red.png");
         }
 
-        /*
+        *//*
          * This level shows how "obstacles" need not actually impede the hero's
          * movement. Here, we attach "damping factors" to the hero, which let us
          * make the hero speed up or slow down based on interaction with the
          * obstacle. This level also adds a stopwatch. Stopwatches don't have
          * any meaning, but they are nice to have anyway...
-         */
+         *//*
         else if (whichLevel == 17) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -807,12 +736,12 @@ public class Levels implements ScreenManager {
             o.setPad(0.2f);
         }
 
-        /*
+        *//*
          * This level shows that it is possible to give heroes and enemies
          * different strengths, so that a hero doesn't disappear after a single
          * collision. It also shows that when an enemy defeats a hero, we can
          * customize the message that prints
-         */
+         *//*
         else if (whichLevel == 18) {
             // set up a basic level
             Level.configure(48, 32);
@@ -862,9 +791,9 @@ public class Levels implements ScreenManager {
             // different messages
         }
 
-        /*
+        *//*
          * This level shows that we can win a level by defeating all enemies
-         */
+         *//*
         else if (whichLevel == 19) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -897,11 +826,11 @@ public class Levels implements ScreenManager {
             Score.setVictoryEnemyCount();
         }
 
-        /*
+        *//*
          * This level shows that a goodie can change the hero's strength, and
          * that we can win by defeating a specific number of enemies, instead of
          * all enemies.
-         */
+         *//*
         else if (whichLevel == 20) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -937,10 +866,10 @@ public class Levels implements ScreenManager {
             WinScene.get().setDefaultWinText("Good enough...");
         }
 
-        /*
+        *//*
          * this level introduces the idea of invincibility. Collecting the
          * goodie makes the hero invincible for a little while...
-         */
+         *//*
         else if (whichLevel == 21) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -979,10 +908,10 @@ public class Levels implements ScreenManager {
             Display.addFPS(400, 15, "arial.ttf", 200, 200, 100, 12);
         }
 
-        /*
+        *//*
          * Some goodies can "count" for more than one point... they can even
          * count for negative points.
-         */
+         *//*
         else if (whichLevel == 22) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -1012,11 +941,11 @@ public class Levels implements ScreenManager {
             Display.addGoodieCount(1, 0, " Progress", 220, 280, "arial.ttf", 60, 70, 255, 12);
         }
 
-        /*
+        *//*
          * this level demonstrates that we can drag entities (in this case,
          * obstacles), and that we can make rotated obstacles. The latter could
          * be useful for having angled walls in a maze
-         */
+         *//*
         else if (whichLevel == 23) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -1045,11 +974,11 @@ public class Levels implements ScreenManager {
             o.setRotation(45);
         }
 
-        /*
+        *//*
          * this level shows how we can use "poking" to move obstacles. In this
          * case, pressing an obstacle selects it, and pressing the screen moves
          * the obstacle to that location. Double-tapping an obstacle removes it.
-         */
+         *//*
         else if (whichLevel == 24) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -1080,9 +1009,9 @@ public class Levels implements ScreenManager {
             o.setPokeToPlace(250);
         }
 
-        /*
+        *//*
          * In this level, the enemy chases the hero
-         */
+         *//*
         else if (whichLevel == 25) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -1112,10 +1041,10 @@ public class Levels implements ScreenManager {
             e3.setZIndex(-2);
         }
 
-        /*
+        *//*
          * We can make obstacles play sounds either when we collide with them,
          * or touch them
-         */
+         *//*
         else if (whichLevel == 26) {
             // set up a basic level
             Level.configure(48, 32);
@@ -1137,11 +1066,11 @@ public class Levels implements ScreenManager {
             o.setCollideSound("hipitch.ogg", 2000);
         }
 
-        /*
+        *//*
          * this hero rotates so that it faces in the direction of movement. This
          * can be useful in games where the perspective is from overhead, and
          * the hero is moving in any X or Y direction
-         */
+         *//*
         else if (whichLevel == 27) {
             // set up a big screen
             Level.configure(4 * 48, 2 * 32);
@@ -1160,11 +1089,11 @@ public class Levels implements ScreenManager {
             Level.setCameraChase(h);
         }
 
-        /*
+        *//*
          * This level shows two things. The first is that a custom motion path
          * can allow things to violate the laws of physics and pass through
          * other things. The second is that motion paths can go off-screen.
-         */
+         *//*
         else if (whichLevel == 28) {
             // set up a regular level
             Level.configure(48, 32);
@@ -1184,13 +1113,13 @@ public class Levels implements ScreenManager {
             e.setRoute(new Route(3).to(1, -90).to(1, 26).to(1, -20), 30, true);
         }
 
-        /*
+        *//*
          * This level shows that we can draw on the screen to create obstacles.
          *
          * This is also our first exposure to "callbacks".  A "callback" is a way of providing code
          * that runs in response to some event.  We use a callback to customize the obstacles that
          * are drawn to the screen in response to scribbles.
-         */
+         *//*
         else if (whichLevel == 29) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -1221,13 +1150,13 @@ public class Levels implements ScreenManager {
             });
         }
 
-        /*
+        *//*
          * This level shows that we can "flick" things to move them. Notice that
          * we do not enable tilt! Instead, we specified that there is a default
          * gravity in the Y dimension pushing everything down. This is much like
          * gravity on earth. The only way to move things, then, is via flicking
          * them.
-         */
+         *//*
         else if (whichLevel == 30) {
             // create a level with a constant force downward in the Y dimension
             Level.configure(48, 32);
@@ -1246,7 +1175,7 @@ public class Levels implements ScreenManager {
             o.setFlickable(.5f);
         }
 
-        /*
+        *//*
          * this level introduces a new concept: side-scrolling games. Just like
          * in level 30, we have a constant force in the negative Y direction.
          * However, in this level, we say that tilt can produce forces in X but
@@ -1254,7 +1183,7 @@ public class Levels implements ScreenManager {
          * that the hero will fall to the floor, since there is a constant
          * downward force, but there is not any mechanism to apply a Y force to
          * make it move back up.
-         */
+         *//*
         else if (whichLevel == 31) {
             // make a long level but not a tall level, and provide a constant
             // downward force:
@@ -1272,12 +1201,12 @@ public class Levels implements ScreenManager {
             Level.setCameraChase(h);
         }
 
-        /*
+        *//*
          * In the previous level, it was hard to see that the hero was moving.
          * We can make a background layer to remedy this situation. Notice that
          * the background uses transparency to show the blue color for part of
          * the screen
-         */
+         *//*
         else if (whichLevel == 32) {
             // start by repeating the previous level:
             Level.configure(30 * 48, 32);
@@ -1328,10 +1257,10 @@ public class Levels implements ScreenManager {
             Level.setLoseCallback(sc);
         }
 
-        /*
+        *//*
          * this level adds multiple background layers, and it also allows the
          * hero to jump via touch
-         */
+         *//*
         else if (whichLevel == 33) {
             // set up a standard side scroller with tilt:
             Level.configure(3 * 48, 32);
@@ -1364,13 +1293,13 @@ public class Levels implements ScreenManager {
             Background.addHorizontalLayer(1.25f, 1, "front.png", 20, 454, 80);
         }
 
-        /*
+        *//*
          * tilt doesn't always work so nicely in side scrollers. An alternative
          * is for the hero to have a fixed rate of motion. Another issue was
          * that you had to touch the hero itself to make it jump. Now, we use an
          * invisible button so touching any part of the screen makes the hero
          * jump.
-         */
+         *//*
         else if (whichLevel == 34) {
             // set up a side scroller, but don't turn on tilt
             Level.configure(3 * 48, 32);
@@ -1410,12 +1339,12 @@ public class Levels implements ScreenManager {
             Enemy.makeAsBox(130, 0, .5f, 32, "");
         }
 
-        /*
+        *//*
          * the default is that once a hero jumps, it can't jump again until it
          * touches an obstacle (floor or wall). Here, we enable multiple jumps.
          * Coupled with a small jump impulse, this makes jumping feel more like
          * swimming or controlling a helicopter.
-         */
+         *//*
         else if (whichLevel == 35) {
             // Note: we can go above the trees
             Level.configure(3 * 48, 38);
@@ -1441,10 +1370,10 @@ public class Levels implements ScreenManager {
             Score.setVictoryDestination(1);
         }
 
-        /*
+        *//*
          * This level shows that we can make a hero move based on how we touch
          * the screen
-         */
+         *//*
         else if (whichLevel == 36) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, 0);
@@ -1476,11 +1405,11 @@ public class Levels implements ScreenManager {
             Control.addDownButton(100, 0, 760, 100, "", 15, h);
         }
 
-        /*
+        *//*
          * In the last level, we had complete control of the hero's movement.
          * Here, we give the hero a fixed velocity, and only control its up/down
          * movement.
-         */
+         *//*
         else if (whichLevel == 37) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, 0);
@@ -1509,11 +1438,11 @@ public class Levels implements ScreenManager {
             Control.addUpButton(100, 540, 760, 100, "", 15, h);
         }
 
-        /*
+        *//*
          * this level demonstrates crawling heroes. We can use this to simulate
          * crawling, ducking, rolling, spinning, etc. Note, too, that we can use
          * it to make the hero defeat certain enemies via crawl.
-         */
+         *//*
         else if (whichLevel == 38) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, -10);
@@ -1535,12 +1464,12 @@ public class Levels implements ScreenManager {
             e.setDefeatByCrawl();
         }
 
-        /*
+        *//*
          * We can make a hero start moving only when it is pressed. This can
          * even let the hero hover until it is pressed. We could also use this
          * to have a game where the player puts obstacles in place, then starts
          * the hero moving.
-         */
+         *//*
         else if (whichLevel == 39) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, -10);
@@ -1563,13 +1492,13 @@ public class Levels implements ScreenManager {
             Level.setCameraChase(h);
         }
 
-        /*
+        *//*
          * LibLOL has limited support for SVG. If you draw a picture in Inkscape
          * or another SVG tool, and it only consists of lines, then you can
          * import it into your game as an obstacle. Drawing a picture on top of
          * the obstacle is probably a good idea, though we don't bother in this
          * level
-         */
+         *//*
         else if (whichLevel == 40) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, -10);
@@ -1602,11 +1531,11 @@ public class Levels implements ScreenManager {
             Score.setVictoryDestination(1);
         }
 
-        /*
+        *//*
          * In a side-scrolling game, it is useful to be able to change the
          * hero's speed either permanently or temporarily. In LibLOL, we can use
          * a collision between a hero and an obstacle to achieve this effect.
-         */
+         *//*
         else if (whichLevel == 41) {
             Level.configure(10 * 48, 32);
             Physics.configure(0, 0);
@@ -1638,10 +1567,10 @@ public class Levels implements ScreenManager {
             o3.setSpeedBoost(20, 0, -1);
         }
 
-        /*
+        *//*
          * this is a very gross level, which exists just to show that
          * backgrounds can scroll vertically.
-         */
+         *//*
         else if (whichLevel == 42) {
             // set up a level where tilt only makes the hero move up and down
             Level.configure(48, 4 * 32);
@@ -1665,11 +1594,11 @@ public class Levels implements ScreenManager {
             Background.addVerticalLayer(1, 1, "front.png", 0, 454, 80);
         }
 
-        /*
+        *//*
          * the next few levels demonstrate support for throwing projectiles. In
          * this level, we throw projectiles by touching the hero. Here, the
          * projectile always goes in the same direction
-         */
+         *//*
         else if (whichLevel == 43) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -1694,14 +1623,14 @@ public class Levels implements ScreenManager {
             ProjectilePool.configure(3, 1, 1, "greyball.png", 1, 0, true);
         }
 
-        /*
+        *//*
          * This is another demo of how throwing projectiles works. Like the
          * previous demo, it doesn't actually use projectiles for anything, it
          * is just to show how to get some different behaviors in terms of how
          * the projectiles move. In this case, we show that we can limit the
          * distance that projectiles travel, and that we can put a control on
          * the HUD for throwing projectiles
-         */
+         *//*
         else if (whichLevel == 44) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, -10);
@@ -1727,10 +1656,10 @@ public class Levels implements ScreenManager {
             Level.setCameraChase(h);
         }
 
-        /*
+        *//*
          * this level demonstrates that we can defeat enemies by throwing
          * projectiles at them
-         */
+         *//*
         else if (whichLevel == 45) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -1765,9 +1694,9 @@ public class Levels implements ScreenManager {
             Control.addSingleThrowButton(0, 0, 960, 640, "", h, .2f, -.5f, 0, 10);
         }
 
-        /*
+        *//*
          * This level shows how to throw projectiles in a variety of directions.
-         */
+         *//*
         else if (whichLevel == 46) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, -10);
@@ -1796,11 +1725,11 @@ public class Levels implements ScreenManager {
             ProjectilePool.setRange(30);
         }
 
-        /*
+        *//*
          * this level shows that with the "vector" projectiles, we can still
          * have gravity affect the projectiles. This is very good for
          * basketball-style games.
-         */
+         *//*
         else if (whichLevel == 47) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, -10);
@@ -1861,7 +1790,7 @@ public class Levels implements ScreenManager {
             });
         }
 
-        /*
+        *//*
          * This level shows how we can attach a timer to an enemy. When the
          * timer runs out, if the enemy is still visible, then some custom code
          * will run. We can use this to simulate cancer cells or fire on a
@@ -1870,7 +1799,7 @@ public class Levels implements ScreenManager {
          * team even had an enemy that dropped goodies at its current location.
          * Note that the timer only runs once... you'll need to make a new timer
          * from within the code that runs when the timer expires.
-         */
+         *//*
         else if (whichLevel == 48) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -1964,10 +1893,10 @@ public class Levels implements ScreenManager {
             Display.addDefeatedCount(0, " Enemies Defeated", 20, 20);
         }
 
-        /*
+        *//*
          * This level shows that we can have moveable enemies that reproduce. Be
          * careful... it is possible to make a lot of enemies, really quickly
-         */
+         *//*
         else if (whichLevel == 49) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -2013,10 +1942,10 @@ public class Levels implements ScreenManager {
             Level.setTimerCallback(2, sc);
         }
 
-        /*
+        *//*
          * this level shows simple animation. Every entity can have a default
          * animation.
-         */
+         *//*
         else if (whichLevel == 50) {
             // set up a basic level
             Level.configure(48, 32);
@@ -2040,9 +1969,9 @@ public class Levels implements ScreenManager {
             h.setDefaultAnimation(new Animation("stars.png", 200, true, 0, 1, 2, 3));
         }
 
-        /*
+        *//*
          * this level introduces jumping animations and disappearance animations
-         */
+         *//*
         else if (whichLevel == 51) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, -10);
@@ -2084,10 +2013,10 @@ public class Levels implements ScreenManager {
                     .to(3, 200), 1, 0, 5, 5);
         }
 
-        /*
+        *//*
          * this level shows that projectiles can be animated, and that we can
          * animate the hero while it throws a projectile
-         */
+         *//*
         else if (whichLevel == 52) {
             // set up a basic level
             Level.configure(48, 32);
@@ -2114,11 +2043,11 @@ public class Levels implements ScreenManager {
             ProjectilePool.setAnimation(new Animation("flystar.png", 100, true, 0, 1));
         }
 
-        /*
+        *//*
          * This level explores invincibility animation. While we're at it, we
          * make some enemies that aren't affected by invincibility, and some
          * that can even damage the hero while it is invincible.
-         */
+         *//*
         else if (whichLevel == 53) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -2174,10 +2103,10 @@ public class Levels implements ScreenManager {
             WinScene.get().setDefaultWinText("");
         }
 
-        /*
+        *//*
          * demonstrate crawl animation, and also show that on multitouch phones,
          * we can "crawl" in the air while jumping.
-         */
+         *//*
         else if (whichLevel == 54) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, -10);
@@ -2213,14 +2142,14 @@ public class Levels implements ScreenManager {
             Level.setCameraChase(h);
         }
 
-        /*
+        *//*
          * This isn't quite the same as animation, but it's nice. We can
          * indicate that a hero's image changes depending on its strength. This
          * can, for example, allow a hero to change (e.g., get healthier) by
          * swapping through images as goodies are collected, or allow the hero
          * to switch its animation depending on how many enemies it has collided
          * with
-         */
+         *//*
         else if (whichLevel == 55) {
             // set up a basic level with a bunch of goodies
             Level.configure(48, 32);
@@ -2267,11 +2196,11 @@ public class Levels implements ScreenManager {
             });
         }
 
-        /*
+        *//*
          * demonstrate that obstacles can defeat enemies, and that we can use
          * this feature to have obstacles that only defeat certain "marked"
          * enemies
-         */
+         *//*
         else if (whichLevel == 56) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -2345,11 +2274,11 @@ public class Levels implements ScreenManager {
             // will play out.
         }
 
-        /*
+        *//*
          * this level shows an odd way of moving the hero. There's friction on
          * the floor, so it can only move by tilting while the hero is in the
          * air
-         */
+         *//*
         else if (whichLevel == 57) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, -10);
@@ -2378,12 +2307,12 @@ public class Levels implements ScreenManager {
             Background.addHorizontalLayer(.5f, 1, "mid.png", 0, 960, 640);
         }
 
-        /*
+        *//*
          * this level shows that we can put an obstacle on the screen and use it
          * to make the hero throw projectiles. It also shows that we can make
          * entities that shrink over time... growth is possible too, with a
          * negative value.
-         */
+         *//*
         else if (whichLevel == 58) {
             Level.configure(48, 32);
             Physics.configure(0, -10);
@@ -2437,10 +2366,10 @@ public class Levels implements ScreenManager {
             Score.setVictoryEnemyCount(5);
         }
 
-        /*
+        *//*
          * this level shows that we can make a hero in the air rotate. Rotation
          * doesn't do anything, but it looks nice...
-         */
+         *//*
         else if (whichLevel == 59) {
             // make a simple level
             Level.configure(48, 32);
@@ -2469,10 +2398,10 @@ public class Levels implements ScreenManager {
             Control.addRotateButton(760, 480, 160, 160, "", .5f, h);
         }
 
-        /**
+        *//**
          * we can attach movement buttons to any moveable entity, so in this
          * case, we attach it to an obstacle to get an arkanoid-like effect.
-         */
+         *//*
         else if (whichLevel == 60) {
             // make a simple level
             Level.configure(48, 32);
@@ -2495,10 +2424,10 @@ public class Levels implements ScreenManager {
             Control.addRightButton(480, 0, 480, 640, "", 5, o);
         }
 
-        /*
+        *//*
          * this level demonstrates that things can appear and disappear on
          * simple timers
-         */
+         *//*
         else if (whichLevel == 61) {
             // set up a basic level
             Level.configure(48, 32);
@@ -2527,13 +2456,13 @@ public class Levels implements ScreenManager {
             e2.setAppearDelay(3);
         }
 
-        /*
+        *//*
          * This level demonstrates the use of timer callbacks. We can use timers
          * to make more of the level appear over time. In this case, we'll chain
          * the timer callbacks together, so that we can get more and more things
          * to develop. Be sure to look at the onTimerCallback code to see how
          * the rest of this level works.
-         */
+         *//*
         else if (whichLevel == 62) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -2616,7 +2545,7 @@ public class Levels implements ScreenManager {
             });
         }
 
-        /*
+        *//*
          * This level shows callbacks that run on a collision between hero and
          * obstacle. In this case, it lets us draw out the next part of the
          * level later, instead of drawing the whole thing right now. In a real
@@ -2624,7 +2553,7 @@ public class Levels implements ScreenManager {
          * obstacle at the end of a screen, so that we'd never see the drawing
          * of stuff taking place, but for this demo, that's actually a nice
          * effect. Be sure to look at onCollideCallback for more details.
-         */
+         *//*
         else if (whichLevel == 63) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, 0);
@@ -2700,11 +2629,11 @@ public class Levels implements ScreenManager {
             o.setDisappearSound("hipitch.ogg");
         }
 
-        /*
+        *//*
          * this level demonstrates callbacks that happen when we touch an
          * obstacle. Be sure to look at the onTouchCallback() method for more
          * details
-         */
+         *//*
         else if (whichLevel == 64) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -2743,14 +2672,14 @@ public class Levels implements ScreenManager {
             g.setDisappearSound("lowpitch.ogg");
         }
 
-        /*
+        *//*
          * this level shows how to use enemy defeat callbacks. There are four
          * ways to defeat an enemy, so we enable all mechanisms in this level,
          * to see if they all work to cause enemy callbacks to run the
          * onEnemyCallback code. Another important point here is that the IDs
          * don't need to be unique for *any* callbacks. We can use the same ID
          * every time...
-         */
+         *//*
         else if (whichLevel == 65) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -2825,12 +2754,12 @@ public class Levels implements ScreenManager {
             Score.setVictoryEnemyCount();
         }
 
-        /*
+        *//*
          * This level shows that we can resize a hero on the fly, and change its
          * image. We use a collision callback to cause the effect. Furthermore,
          * we can increment scores inside of the callback code, which lets us
          * activate the destination on an obstacle collision
-         */
+         *//*
         else if (whichLevel == 66) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -2870,11 +2799,11 @@ public class Levels implements ScreenManager {
             });
         }
 
-        /*
+        *//*
          * This level shows how to use countdown timers to win a level, tests
          * some color features, and introduces a vector throw mechanism with
          * fixed velocity
-         */
+         *//*
         else if (whichLevel == 67) {
             Level.configure(48, 32);
             Physics.configure(0, -10);
@@ -2908,12 +2837,12 @@ public class Levels implements ScreenManager {
             Score.setVictoryDestination(1);
         }
 
-        /*
+        *//*
          * We can make a hero hover, and then have it stop hovering when it is
          * flicked or moved via "touchToMove". This demonstrates the effect via
          * flick. It also shows that an enemy (or obstacle/goodie/destination)
          * can fall due to gravity.
-         */
+         *//*
         else if (whichLevel == 68) {
             Level.configure(48, 32);
             Physics.configure(0, -10);
@@ -2932,14 +2861,14 @@ public class Levels implements ScreenManager {
             Score.setVictoryDestination(1);
         }
 
-        /*
+        *//*
          * The default behavior is for a hero to be able to jump any time it
          * collides with an obstacle. This isn't, of course, the smartest way to
          * do things, since a hero in the air shouldn't jump. One way to solve
          * the problem is by altering the presolve code in Physics.java. Another
          * approach, which is much simpler, is to mark some walls so that the
          * hero doesn't have jump re-enabled upon a collision.
-         */
+         *//*
         else if (whichLevel == 69) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, -10);
@@ -2965,11 +2894,11 @@ public class Levels implements ScreenManager {
             o.setReJump(false);
         }
 
-        /*
+        *//*
          * When something chases an entity, we might not want it to chase in
          * both the X and Y dimensions... this shows how we can chase in a
          * single direction.
-         */
+         *//*
         else if (whichLevel == 70) {
             // set up a simple level
             Level.configure(48, 32);
@@ -3002,10 +2931,10 @@ public class Levels implements ScreenManager {
             o.setPassThrough(7);
         }
 
-        /*
+        *//*
          * PokeToPlace is nice, but sometimes it's nicer to use Poke to cause
          * movement to the destination, instead of an immediate jump.
-         */
+         *//*
         else if (whichLevel == 71) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -3034,12 +2963,12 @@ public class Levels implements ScreenManager {
             Control.addImage(40, 40, 40, 40, "red.png");
         }
 
-        /*
+        *//*
          * It can be useful to make a Hero stick to an obstacle. As an example,
          * if the hero should stand on a platform that moves along a route, then
          * we will want the hero to "stick" to it, even as the platform moves
          * downward.
-         */
+         *//*
         else if (whichLevel == 72) {
             Level.configure(48, 32);
             Physics.configure(0, -10);
@@ -3073,11 +3002,11 @@ public class Levels implements ScreenManager {
             Control.addRightButton(860, 100, 100, 440, "", 5, h);
         }
 
-        /*
+        *//*
          * When using "vector" projectiles, if the projectile isn't a circle we
          * might want to rotate it in the direction of travel. Also, this level
          * shows how to do walls that can be passed through in one direction.
-         */
+         *//*
         else if (whichLevel == 73) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -3116,9 +3045,9 @@ public class Levels implements ScreenManager {
             top.setOneSided(0);
         }
 
-        /*
+        *//*
          * This level shows how to use multiple types of goodie scores
-         */
+         *//*
         else if (whichLevel == 74) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -3162,10 +3091,10 @@ public class Levels implements ScreenManager {
             });
         }
 
-        /*
+        *//*
          * this level shows passthrough objects and chase again, to help
          * demonstrate how chase works
-         */
+         *//*
         else if (whichLevel == 75) {
             // set up a simple level
             Level.configure(48, 32);
@@ -3190,10 +3119,10 @@ public class Levels implements ScreenManager {
             o.setPassThrough(7);
         }
 
-        /*
+        *//*
          * We can have a control that increases the hero's speed while pressed,
          * and decreases it upon release
-         */
+         *//*
         else if (whichLevel == 76) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, 10);
@@ -3221,11 +3150,11 @@ public class Levels implements ScreenManager {
             Control.addTurboButton(0, 0, 960, 640, "", 15, 0, 4, 0, h);
         }
 
-        /*
+        *//*
          * Sometimes, we want to make the hero move when we press a control, but
          * when we release we don't want an immediate stop. This shows how to
          * get that effect.
-         */
+         *//*
         else if (whichLevel == 77) {
             Level.configure(3 * 48, 32);
             Physics.configure(0, -10);
@@ -3247,11 +3176,11 @@ public class Levels implements ScreenManager {
             Control.addDampenedMotionButton(0, 0, 960, 640, "", 10, 0, 4, h);
         }
 
-        /*
+        *//*
          * One-sided obstacles can be callback obstacles. This allows, among
          * other things, games like doodle jump. This level shows how it all
          * interacts.
-         */
+         *//*
         else if (whichLevel == 78) {
             Level.configure(48, 32);
             Physics.configure(0, -10);
@@ -3286,13 +3215,13 @@ public class Levels implements ScreenManager {
             platform.setZIndex(-1);
         }
 
-        /*
+        *//*
          * This level fleshes out some more poke-to-move stuff. Now we'll say
          * that once a hero starts moving, the player must re-poke the hero
          * before it can be given a new destination. Also, the hero will keep
          * moving after the screen is released. We will also show the Fact
          * interface.
-         */
+         *//*
         else if (whichLevel == 79) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -3339,10 +3268,10 @@ public class Levels implements ScreenManager {
             });
         }
 
-        /*
+        *//*
          * Sometimes we need to manually force an entity to be immune to
          * gravity.
-         */
+         *//*
         else if (whichLevel == 80) {
             Level.configure(48, 32);
             Physics.configure(0, -10);
@@ -3366,9 +3295,9 @@ public class Levels implements ScreenManager {
             Score.setVictoryDestination(1);
         }
 
-        /*
+        *//*
          * Test to show that we can have obstacles with a polygon shape
-         */
+         *//*
         else if (whichLevel == 81) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -3388,10 +3317,10 @@ public class Levels implements ScreenManager {
             o.setShrinkOverTime(1, 1, true);
         }
 
-        /*
+        *//*
          * A place for playing with a side-scrolling platformer that has lots of
          * features
-         */
+         *//*
         else if (whichLevel == 82) {
             // set up a standard side scroller with tilt:
             Level.configure(3 * 48, 32);
@@ -3416,9 +3345,9 @@ public class Levels implements ScreenManager {
             e.setDefeatByJump();
         }
 
-        /*
+        *//*
          * Demonstrate the ability to set up paddles that rotate back and forth
-         */
+         *//*
         else if (whichLevel == 83) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -3441,9 +3370,9 @@ public class Levels implements ScreenManager {
             Score.setVictoryDestination(1);
         }
 
-        /*
+        *//*
          * Demonstrate panning to view more of the level
-         */
+         *//*
         else if (whichLevel == 84) {
             // set up a big screen
             Level.configure(4 * 48, 2 * 32);
@@ -3469,10 +3398,10 @@ public class Levels implements ScreenManager {
             Control.addPanControl(0, 0, 960, 640, "");
         }
 
-        /*
+        *//*
          * Demonstrate pinch-to-zoom, and also demonstrate one-time callback
          * controls
-         */
+         *//*
         else if (whichLevel == 85) {
             // set up a big screen
             Level.configure(4 * 48, 2 * 32);
@@ -3502,9 +3431,9 @@ public class Levels implements ScreenManager {
             });
         }
 
-        /*
+        *//*
          * Demonstrate some advanced controls
-         */
+         *//*
         else if (whichLevel == 86) {
             // set up a screen
             Level.configure(48, 32);
@@ -3556,9 +3485,9 @@ public class Levels implements ScreenManager {
             Control.addVerticalBar(470, 0, 10, 320, "greenball.png", barSC);
         }
 
-        /*
+        *//*
          * Weld joints
-         */
+         *//*
         else if (whichLevel == 87) {
             // set up a screen
             Level.configure(48, 32);
@@ -3577,9 +3506,9 @@ public class Levels implements ScreenManager {
             h.setWeldJoint(o, 3, 0, 0, 0, 45);
         }
 
-        /*
+        *//*
          * Demonstrate that we can have callback buttons on PauseScenes
-         */
+         *//*
         else if (whichLevel == 88) {
             Level.configure(48, 32);
             Physics.configure(0, 0);
@@ -3616,9 +3545,9 @@ public class Levels implements ScreenManager {
             Control.addPauseButton(0, 300, 20, 20, "red.png");
         }
 
-        /*
+        *//*
          * Use multiple heroes to combine positive and negative results
-         */
+         *//*
         else if (whichLevel == 89) {
             Level.configure(48, 32);
             Physics.configure(0, -10);
@@ -3648,10 +3577,10 @@ public class Levels implements ScreenManager {
             Destination.makeAsCircle(29, 6, 2, 2, "mustardball.png");
         }
 
-        /*
+        *//*
          * Demonstrate that we can save entities so that we can access them from
          * a callback
-         */
+         *//*
         else if (whichLevel == 90) {
             Level.configure(48, 32);
             Physics.configure(0, -10);
@@ -3681,9 +3610,9 @@ public class Levels implements ScreenManager {
             });
         }
 
-        /**
+        *//**
          * Demo a truck, using distance and revolute joints
-         */
+         *//*
         else if (whichLevel == 91) {
             Level.configure(48, 32);
             Physics.configure(0, -10);
@@ -3711,10 +3640,10 @@ public class Levels implements ScreenManager {
             Score.setVictoryDestination(1);
         }
 
-        /**
+        *//**
          * Demonstrate how we can chain pausescenes together, and also show how to use particle
          * effects
-         */
+         *//*
         else if (whichLevel == 92) {
             // start with a basic tilt-based side-scroller
             Level.configure(3 * 48, 32);
@@ -3808,11 +3737,11 @@ public class Levels implements ScreenManager {
             // Note that the obstacle needs to be final or we can't access it within the callback
             final Obstacle trigger = Obstacle.makeAsBox(30, 0, 1, 32, "");
             LolCallback lc = new LolCallback(){
-                /**
+                *//**
                  * Each time the hero hits the obstacle, we'll run this code to draw a new enemy
                  * and a new obstacle on the screen.  We'll randomize their placement just a bit.
                  * Also move the obstacle forward, so we can hit it again.
-                 */
+                 *//*
                 public void onEvent() {
                     // make a random enemy and a random goodie.  Put them in X coordinates relative to the trigger
                     Enemy.makeAsCircle(trigger.getXPosition() + 40 + Util.getRandom(10), Util.getRandom(30), 2, 2, "redball.png");
@@ -3827,3 +3756,4 @@ public class Levels implements ScreenManager {
         }
     }
 }
+*/
