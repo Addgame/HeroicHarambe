@@ -70,21 +70,21 @@ public class Levels implements ScreenManager {
      * following function.
      */
     public void display(int whichLevel) {
-        /*
-         * In this level, all we have is a hero (the green ball) who needs to
-         * make it to the destination (a mustard colored ball). The game is
-         * configured to use tilt to control the hero.
-         */
+
+        // set up level size and physics
         Level.configure(3 * 48, 32);
         Physics.configure(0, -10);
 
+        // create hero, set camera to follow, and set jumping impulses
         Hero h = Hero.makeAsBox(4, 5, 3, 5, "HarambeArt/Harambe Complete.png");
         Level.setCameraChase(h);
         h.setJumpImpulses(0, 14);
 
+        // set projectiles
         ProjectilePool.configure(100, 1, 1, "HarambeArt/book.png", 1, 0, true);
         ProjectilePool.setRange(30);
 
+        // add control buttons onto the screen
         Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 500, 3, 2.5f, 30, 0);
         Control.addJumpButton(800, 18, 75, 75, "HarambeArt/Jump.png", h);
         Control.addLeftButton(80, 18, 75, 75, "HarambeArt/Left.png", 20, h);
