@@ -271,7 +271,7 @@ public class Levels implements ScreenManager {
 
             // create platforms
             Obstacle.makeAsBox(66, 23.5f, 16, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
-            Obstacle.makeAsBox(11, 11, 13, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
+            Obstacle.makeAsBox(11, 12, 13, 2, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(117, 21, 6, 2, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(52, 11, 13, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
             Obstacle.makeAsBox(82, 11, 13, 3, "HarambeArt/Platform/Detroid Repeat Platform.png");
@@ -286,7 +286,7 @@ public class Levels implements ScreenManager {
             Enemy.makeAsBox(54, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(65, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(50, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(16, 14, 5, 8, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
+            Enemy.makeAsBox(16, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
             Enemy.makeAsBox(21, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(4, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(102, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
