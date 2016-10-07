@@ -202,7 +202,7 @@ public class Levels implements ScreenManager {
             Enemy g = Enemy.makeAsBox(53, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png");
             g.setPhysics(1.0f, 0.3f, 0.6f);
             Enemy gg = Enemy.makeAsBox(71, 5, 5, 8, "HarambeArt/Characters(Good)/soldierS.png");
-            gg.setPhysics(1.0f, 0.3f, 0.6f).disableRotation();setChaseSpeed(3,h,true,false);
+            gg.setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
 
             // create level end
             Obstacle f = Obstacle.makeAsBox(138, 5, 2, 3, "HarambeArt/mard.png");
