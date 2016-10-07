@@ -42,6 +42,7 @@ import edu.lehigh.cse.lol.Foreground;
 import edu.lehigh.cse.lol.Goodie;
 import edu.lehigh.cse.lol.Hero;
 import edu.lehigh.cse.lol.Level;
+import edu.lehigh.cse.lol.Lol;
 import edu.lehigh.cse.lol.LolCallback;
 import edu.lehigh.cse.lol.LoseScene;
 import edu.lehigh.cse.lol.Obstacle;
@@ -303,7 +304,7 @@ public class Levels implements ScreenManager {
                         public void onEvent() {
                             if (Score.getEnemiesDefeated() == ScoreHack.getEnemiesCreated()) {
                                 Score.winLevel();
-
+                                Lol.doChooser(2); // goes to end credits
                             }
                         }
                     }

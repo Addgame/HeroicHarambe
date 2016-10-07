@@ -28,6 +28,7 @@
 package com.me.mylolgame;
 
 import edu.lehigh.cse.lol.Control;
+import edu.lehigh.cse.lol.Facts;
 import edu.lehigh.cse.lol.Level;
 import edu.lehigh.cse.lol.Lol;
 import edu.lehigh.cse.lol.LolCallback;
@@ -83,6 +84,20 @@ public class Splash implements ScreenManager {
         Control.addCallbackControl(300, 30, 138, 78, "", new LolCallback() {
             public void onEvent() {
                 Lol.doQuit();
+            }
+        });
+
+        // secret button locks all levels but 1
+        Control.addCallbackControl(0, 590, 50, 50, "", new LolCallback() {
+            public void onEvent() {
+                Facts.putGameFact("unlocked", 1);
+            }
+        });
+
+        // secret button unlocks all levels
+        Control.addCallbackControl(910, 590, 50, 50, "", new LolCallback() {
+            public void onEvent() {
+                Facts.putGameFact("unlocked", 5);
             }
         });
 
