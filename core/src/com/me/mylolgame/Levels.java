@@ -104,10 +104,10 @@ public class Levels implements ScreenManager {
         ProjectilePool.setRange(30);
 
         // add control buttons onto the screen
-        Control.addThrowButton(650, 18, 75, 75, "HarambeArt/Throw.png", h, 500, 3, 2.5f, 30, 0);
-        Control.addJumpButton(800, 18, 75, 75, "HarambeArt/Jump.png", h);
-        Control.addLeftButton(80, 18, 75, 75, "HarambeArt/Left.png", 20, h);
-        Control.addRightButton(230, 18, 75, 75, "HarambeArt/Right.png", 20, h);
+        Control.addThrowButton(620, 18, 125, 125, "HarambeArt/Throw.png", h, 500, 3, 2.5f, 30, 0);
+        Control.addJumpButton(800, 18, 125, 125, "HarambeArt/Jump.png", h);
+        Control.addLeftButton(80, 18, 125, 125, "HarambeArt/Left.png", 20, h);
+        Control.addRightButton(260, 18, 125, 125, "HarambeArt/Right.png", 20, h);
 
 
         if (whichLevel == 1) {

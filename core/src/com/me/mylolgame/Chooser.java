@@ -147,7 +147,7 @@ public class Chooser implements ScreenManager {
             Physics.configure(0, 0);
 
             // set up background and music
-            Util.drawPicture(0, 0, 48, 32, "chooser.png", 0);
+            Util.drawPicture(0, 0, 48, 32, "HarambeArt/Platform/world map.png", 0);
             Level.setMusic("Music/BGM/BGM (Menu).ogg");
 
             // for each button, draw an obstacle with a touchCallback, and then
@@ -160,20 +160,7 @@ public class Chooser implements ScreenManager {
             drawLevelButton(28f, 16, 5, 5, 4);
             drawLevelButton(34.5f, 16, 5, 5, 5);
 
-            drawLevelButton(8.5f, 9.5f, 5, 5, 6);
-            drawLevelButton(15f, 9.5f, 5, 5, 7);
-            drawLevelButton(21.5f, 9.5f, 5, 5, 8);
-            drawLevelButton(28f, 9.5f, 5, 5, 9);
-            drawLevelButton(34.5f, 9.5f, 5, 5, 10);
-
-            drawLevelButton(8.5f, 3f, 5, 5, 11);
-            drawLevelButton(15f, 3f, 5, 5, 12);
-            drawLevelButton(21.5f, 3f, 5, 5, 13);
-            drawLevelButton(28f, 3f, 5, 5, 14);
-            drawLevelButton(34.5f, 3f, 5, 5, 15);
-
             // draw the navigation buttons
-            drawNextButton(43, 9.5f, 5, 5, 2);
             drawSplashButton(0, 0, 5, 5);
         }
 
@@ -189,116 +176,11 @@ public class Chooser implements ScreenManager {
 
             // set up background and music
             Util.drawPicture(0, 0, 48, 32, "chooser.png", 0);
-            Level.setMusic("tune.ogg");
+            Level.setMusic("Music/BGM/Yeee(Producer song).ogg");
 
-            // let's use a loop to do each row
-            float x = 8.5f;
-            int level = 16;
-            for (int i = 0; i < 5; ++i) {
-                drawLevelButton(x, 16, 5, 5, level);
-                level++;
-                x += 6.5f;
-            }
 
-            x = 8.5f;
-            for (int i = 0; i < 5; ++i) {
-                drawLevelButton(x, 9.5f, 5, 5, level);
-                level++;
-                x += 6.5f;
-            }
-
-            x = 8.5f;
-            for (int i = 0; i < 5; ++i) {
-                drawLevelButton(x, 3, 5, 5, level);
-                level++;
-                x += 6.5f;
-            }
 
             // draw the navigation buttons
-            drawPrevButton(0, 9.5f, 5, 5, 1);
-            drawNextButton(43, 9.5f, 5, 5, 3);
-            drawSplashButton(0, 0, 5, 5);
-        }
-
-        // screen 3: show levels 31-->45
-        //
-        // NB: now we use a nested pair of loops, and we can do three rows in
-        // just a few more lines than one row.
-        else if (which == 3) {
-            Level.configure(48, 32);
-            Physics.configure(0, 0);
-
-            // set up background and music
-            Util.drawPicture(0, 0, 48, 32, "chooser.png", 0);
-            Level.setMusic("tune.ogg");
-
-            // let's use a loop to do each row and each column
-            float y = 16;
-            int level = 31;
-            for (int r = 0; r < 3; ++r) {
-                float x = 8.5f;
-                for (int i = 0; i < 5; ++i) {
-                    drawLevelButton(x, y, 5, 5, level);
-                    level++;
-                    x += 6.5f;
-                }
-                y -= 6.5f;
-            }
-
-            // draw the navigation buttons
-            drawPrevButton(0, 9.5f, 5, 5, 2);
-            drawNextButton(43, 9.5f, 5, 5, 4);
-            drawSplashButton(0, 0, 5, 5);
-        }
-
-        // let's be a little more advanced... we can do all of these with the
-        // same block of code:
-        // screen 4: show levels 46-->60
-        // screen 5: show levels 61-->75
-        // screen 6: show levels 75-->90
-        else if (which < 7) {
-            // set-up
-            Level.configure(48, 32);
-            Physics.configure(0, 0);
-            Util.drawPicture(0, 0, 48, 32, "chooser.png", 0);
-            Level.setMusic("tune.ogg");
-
-            // levels
-            float y = 16;
-            int level = (which - 1) * 15 + 1;
-            for (int r = 0; r < 3; ++r) {
-                float x = 8.5f;
-                for (int i = 0; i < 5; ++i) {
-                    drawLevelButton(x, y, 5, 5, level);
-                    level++;
-                    x += 6.5f;
-                }
-                y -= 6.5f;
-            }
-
-            // navigation buttons
-            drawPrevButton(0, 9.5f, 5, 5, which - 1);
-            drawNextButton(43, 9.5f, 5, 5, which + 1);
-            drawSplashButton(0, 0, 5, 5);
-        }
-
-        // The final case is the 7th screen, which just shows levels 91 and 92.
-        // We'll just do it by hand.
-        else if (which == 7) {
-            Level.configure(48, 32);
-            Physics.configure(0, 0);
-
-            // set up background and music
-            Util.drawPicture(0, 0, 48, 32, "chooser.png", 0);
-            Level.setMusic("tune.ogg");
-
-            // we have 92 levels, so just draw a few buttons for now...
-            drawLevelButton(8.5f, 16, 5, 5, 91);
-            drawLevelButton(15f, 16, 5, 5, 92);
-            drawLevelButton(21.5f, 16, 5, 5, 93);
-
-            // draw the navigation buttons
-            drawPrevButton(0, 9.5f, 5, 5, 6);
             drawSplashButton(0, 0, 5, 5);
         }
     }
