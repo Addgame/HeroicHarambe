@@ -131,6 +131,7 @@ public class MyGame extends Lol {
         Media.registerImage("HarambeArt/Platform/Japan.png");
         Media.registerImage("HarambeArt/Platform/mexico.png");
         Media.registerImage("HarambeArt/Platform/world map.png");
+        Media.registerImage("HarambeArt/MainMenu.png");
 
 
         // load the image we show on the main screen
