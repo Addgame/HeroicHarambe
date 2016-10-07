@@ -148,7 +148,7 @@ public class Chooser implements ScreenManager {
 
             // set up background and music
             Util.drawPicture(0, 0, 48, 32, "chooser.png", 0);
-            Level.setMusic("tune.ogg");
+            Level.setMusic("Music/BGM/BGM (Menu).ogg");
 
             // for each button, draw an obstacle with a touchCallback, and then
             // put text on top of it. Our buttons are 5x5, we have 1.5 meters

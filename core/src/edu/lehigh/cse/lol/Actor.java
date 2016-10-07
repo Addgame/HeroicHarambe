@@ -523,8 +523,9 @@ public abstract class Actor implements Renderable {
     /**
      * Indicate that this actor should not rotate due to torque
      */
-    public void disableRotation() {
+    public Actor disableRotation() {
         mBody.setFixedRotation(true);
+        return this;
     }
 
     /**
