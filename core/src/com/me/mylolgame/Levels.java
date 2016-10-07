@@ -71,6 +71,7 @@ public class Levels implements ScreenManager {
      * following function.
      */
     public void display(int whichLevel) {
+        //Facts.putGameFact("unlocked", 1);
 
         // set up level size and physics
         Level.configure(3 * 48, 32);
@@ -126,7 +127,7 @@ public class Levels implements ScreenManager {
             // create enemies
             Enemy.makeAsBox(68, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(45, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(120, 5, 5, 8, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
+            Enemy.makeAsBox(120, 5, 5, 9, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
 
             // create level end
             Obstacle f = Obstacle.makeAsBox(138, 5, 2, 3, "HarambeArt/mard.png");
@@ -160,7 +161,7 @@ public class Levels implements ScreenManager {
             // create enemies
             Enemy.makeAsBox(45, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(88, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(120, 5, 5, 8, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
+            Enemy.makeAsBox(120, 5, 5, 9, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
 
             // create level end
             Obstacle f = Obstacle.makeAsBox(138, 5, 2, 3, "HarambeArt/mard.png");
@@ -197,7 +198,7 @@ public class Levels implements ScreenManager {
             Enemy.makeAsBox(90, 21, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(120, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(53, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(71, 5, 5, 8, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
+            Enemy.makeAsBox(71, 5, 5, 9, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
 
             // create level end
             Obstacle f = Obstacle.makeAsBox(138, 5, 2, 3, "HarambeArt/mard.png");
@@ -242,7 +243,7 @@ public class Levels implements ScreenManager {
             Enemy.makeAsBox(102, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(84, 25, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(91, 25, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(135, 5, 5, 8, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
+            Enemy.makeAsBox(135, 5, 5, 9, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
 
             // create level end
             Obstacle f = Obstacle.makeAsBox(138, 23, 2, 3, "HarambeArt/mard.png");
@@ -291,7 +292,7 @@ public class Levels implements ScreenManager {
             Enemy.makeAsBox(89, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(126, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
             Enemy.makeAsBox(138, 5, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
-            Enemy.makeAsBox(129, 14, 5, 8, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
+            Enemy.makeAsBox(129, 14, 5, 9, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f).disableRotation().setChaseSpeed(3,h,true,false);
             Enemy.makeAsBox(137, 24, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
 
             // create level end
@@ -302,6 +303,7 @@ public class Levels implements ScreenManager {
                         public void onEvent() {
                             if (Score.getEnemiesDefeated() == ScoreHack.getEnemiesCreated()) {
                                 Score.winLevel();
+
                             }
                         }
                     }

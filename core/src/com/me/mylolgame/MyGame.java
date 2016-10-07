@@ -27,6 +27,7 @@
 
 package com.me.mylolgame;
 
+import edu.lehigh.cse.lol.Facts;
 import edu.lehigh.cse.lol.Lol;
 import edu.lehigh.cse.lol.Media;
 
@@ -51,7 +52,7 @@ public class MyGame extends Lol {
         mHeight = 640;
         mNumLevels = 93;
         mEnableVibration = true;
-        mUnlockAllLevels = true;
+        mUnlockAllLevels = false;
         mShowDebugBoxes = false;
         mStorageKey = "com.me.mylolgame.prefs";
         mDefaultFontFace = "arial.ttf";
@@ -132,7 +133,10 @@ public class MyGame extends Lol {
         Media.registerImage("HarambeArt/Platform/mexico.png");
         Media.registerImage("HarambeArt/Platform/world map.png");
         Media.registerImage("HarambeArt/MainMenu.png");
-
+        Media.registerImage("HarambeArt/Platform/American Flag.png");
+        Media.registerImage("HarambeArt/Platform/canadian flag.png");
+        Media.registerImage("HarambeArt/Platform/japan Flag.png");
+        Media.registerImage("HarambeArt/Platform/mexican flag.png");
 
         // load the image we show on the main screen
         Media.registerImage("splash.png");
@@ -178,5 +182,6 @@ public class MyGame extends Lol {
         Media.registerMusic("Music/Effects/Throwing.ogg", true);
         Media.registerMusic("Music/Effects/Woman Crying.ogg", true);
         Media.registerMusic("Music/BGM/BGM (Menu).ogg", true);
+        Media.registerMusic("Music/BGM/Yeee(Producer song).ogg", true);
     }
 }
