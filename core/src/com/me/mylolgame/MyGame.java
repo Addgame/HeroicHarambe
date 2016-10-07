@@ -50,7 +50,7 @@ public class MyGame extends Lol {
         // over the word on the left side of the equals sign
         mWidth = 960;
         mHeight = 640;
-        mNumLevels = 93;
+        mNumLevels = 5;
         mEnableVibration = true;
         mUnlockAllLevels = false;
         mShowDebugBoxes = false;
