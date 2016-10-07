@@ -78,7 +78,7 @@ public class Help implements ScreenManager {
             // set up a control to go to the next level on screen press
             Control.addCallbackControl(0, 0, 960, 640, "", new LolCallback() {
                 public void onEvent() {
-                    Lol.doHelp(2);
+                    Lol.doSplash();
                 }
             });
         }
