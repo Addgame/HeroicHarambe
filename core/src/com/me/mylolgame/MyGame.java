@@ -27,6 +27,7 @@
 
 package com.me.mylolgame;
 
+import edu.lehigh.cse.lol.Facts;
 import edu.lehigh.cse.lol.Lol;
 import edu.lehigh.cse.lol.Media;
 
@@ -51,8 +52,8 @@ public class MyGame extends Lol {
         mHeight = 640;
         mNumLevels = 93;
         mEnableVibration = true;
-        mUnlockAllLevels = true;
-        mShowDebugBoxes = true;
+        mUnlockAllLevels = false;
+        mShowDebugBoxes = false;
         mStorageKey = "com.me.mylolgame.prefs";
         mDefaultFontFace = "arial.ttf";
         mDefaultFontSize = 32;

@@ -100,7 +100,7 @@ public class Splash implements ScreenManager {
         o.setTouchCallback(0, 0, 0, 0, false, new LolCallback() {
             public void onEvent() {
                 Lol.toggleMute();
-                if (Lol.getVolume()) {
+                if (!Lol.getVolume()) {
                     mAttachedActor.setImage("audio_off.png", 0);
                 } else {
                     mAttachedActor.setImage("audio_on.png", 0);
