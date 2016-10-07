@@ -56,6 +56,9 @@ public class Help implements ScreenManager {
             Physics.configure(0, 0);
             Background.setColor(137, 75, 46);
 
+            // set music
+            Level.setMusic("Music/BGM/BGM (Menu).ogg");
+
             // put some information on the screen
             Util.drawText(5, 28, "How to Play Heroic Harambe", 0, 0, 0, "arial.ttf", 40, 0);
 
