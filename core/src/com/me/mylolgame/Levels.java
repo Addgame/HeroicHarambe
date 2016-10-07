@@ -71,6 +71,7 @@ public class Levels implements ScreenManager {
      * following function.
      */
     public void display(int whichLevel) {
+        //Facts.putGameFact("unlocked", 1);
 
         // set up level size and physics
         Level.configure(3 * 48, 32);
@@ -302,6 +303,7 @@ public class Levels implements ScreenManager {
                         public void onEvent() {
                             if (Score.getEnemiesDefeated() == ScoreHack.getEnemiesCreated()) {
                                 Score.winLevel();
+
                             }
                         }
                     }
