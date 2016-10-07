@@ -152,9 +152,9 @@ public class Chooser implements ScreenManager {
             drawLevelButton(8.5f, 10, 5, 5, 1);
             Util.drawPicture(15f, 16, 5, 5, "HarambeArt/Platform/Detroid.png", 0);
             drawLevelButton(15f, 10, 5, 5, 2);
-            Util.drawPicture(21.5f, 16, 5, 5, "HarambeArt/Platform/japan Flag.png", 0);
+            Util.drawPicture(21.5f, 16, 5, 5, "HarambeArt/Platform/mexican flag.png", 0);
             drawLevelButton(21.5f, 10, 5, 5, 3);
-            Util.drawPicture(28f, 16, 5, 5, "HarambeArt/Platform/mexican flag.png", 0);
+            Util.drawPicture(28f, 16, 5, 5, "HarambeArt/Platform/japan Flag.png", 0);
             drawLevelButton(28f, 10, 5, 5, 4);
             Util.drawPicture(34.5f, 16, 5, 5, "HarambeArt/Platform/cincinatti.png", 0);
             drawLevelButton(34.5f, 10, 5, 5, 5);
