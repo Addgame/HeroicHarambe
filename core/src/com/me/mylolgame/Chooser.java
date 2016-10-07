@@ -191,7 +191,7 @@ public class Chooser implements ScreenManager {
 
 
             // draw the navigation buttons
-            drawSplashButton(0, 0, 5, 5);
+            drawSplashButton(0, 28, 4, 4);
         }
     }
 }
