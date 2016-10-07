@@ -54,29 +54,26 @@ public class Help implements ScreenManager {
             // set up a basic screen
             Level.configure(48, 32);
             Physics.configure(0, 0);
-            Background.setColor(255, 255, 255);
+            Background.setColor(137, 75, 46);
 
             // put some information on the screen
-            Util.drawText(5, 26, "The levels of this game\ndemonstrate LOL features", 0, 0, 0, "arial.ttf", 40, 0);
+            Util.drawText(5, 28, "How to Play Heroic Harambe", 0, 0, 0, "arial.ttf", 40, 0);
 
             // draw a legend, using obstacles and text
-            Obstacle.makeAsBox(5, 20, 3, 3, "greenball.png");
-            Util.drawText(9, 21, "You control the hero", 0, 0, 0, "arial.ttf", 24, 0);
+            Obstacle.makeAsBox(5, 20, 3, 4.95f, "HarambeArt/Harambe Complete.png");
+            Util.drawText(9, 22, "You control Harambe", 0, 0, 0, "arial.ttf", 24, 0);
 
-            Obstacle.makeAsBox(5, 16, 3, 3, "blueball.png");
-            Util.drawText(9, 17, "Collect these goodies", 0, 0, 0, "arial.ttf", 24, 0);
+            Obstacle.makeAsBox(5, 12.5f, 3, 6, "HarambeArt/Characters(Good)/soldierS.png");
+            Util.drawText(9, 15, "Educate the enemies by throwing books at them", 0, 0, 0, "arial.ttf", 24, 0);
 
-            Obstacle.makeAsBox(5, 12, 3, 3, "redball.png");
-            Util.drawText(9, 13, "Avoid or defeat enemies", 0, 0, 0, "arial.ttf", 24, 0);
+            Obstacle.makeAsBox(5.5f, 8, 2, 3, "HarambeArt/mard.png");
+            Util.drawText(9, 9.5f, "Collect the mard after educating all enemies to pass the level", 0, 0, 0, "arial.ttf", 24, 0);
 
-            Obstacle.makeAsBox(5, 8, 3, 3, "mustardball.png");
-            Util.drawText(9, 9, "Reach the destination", 0, 0, 0, "arial.ttf", 24, 0);
+            Obstacle.makeAsBox(5, 4, 3, 3, "HarambeArt/book.png");
+            Util.drawText(9, 5, "These are books for educating (your projectiles)", 0, 0, 0, "arial.ttf", 24, 0);
 
-            Obstacle.makeAsBox(5, 4, 3, 3, "purpleball.png");
-            Util.drawText(9, 5, "These are walls", 0, 0, 0, "arial.ttf", 24, 0);
-
-            Obstacle.makeAsBox(5, 0, 3, 3, "greyball.png");
-            Util.drawText(9, 1, "Throw projectiles", 0, 0, 0, "arial.ttf", 24, 0);
+            Obstacle.makeAsBox(5, 0, 3, 3, "HarambeArt/Throw.png");
+            Util.drawText(9, 1, "Projectile Button", 0, 0, 0, "arial.ttf", 24, 0);
 
             // set up a control to go to the next level on screen press
             Control.addCallbackControl(0, 0, 960, 640, "", new LolCallback() {
