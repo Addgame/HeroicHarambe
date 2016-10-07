@@ -185,7 +185,7 @@ public class Chooser implements ScreenManager {
             Physics.configure(0, 0);
 
             // set up background and music
-            Util.drawPicture(0, 0, 48, 32, "chooser.png", 0);
+            Util.drawPicture(0, 0, 48, 32,"HarambeArt/Platform/Final scene.png", 0);
             Level.setMusic("Music/BGM/Yeee(Producer song).ogg");
 
 

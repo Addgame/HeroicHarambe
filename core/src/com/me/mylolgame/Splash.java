@@ -101,6 +101,12 @@ public class Splash implements ScreenManager {
             }
         });
 
+        Control.addCallbackControl(455, 590, 50, 50, "", new LolCallback() {
+            public void onEvent() {
+                Lol.doChooser(2);
+            }
+        });
+
         // Mute button is a tad tricky... we'll do it as an obstacle
         Obstacle o = Obstacle.makeAsBox(45, 0, 2.5f, 2.5f, "");
         // figure out which image to use for the obstacle based on the current

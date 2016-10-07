@@ -193,6 +193,7 @@ public class Levels implements ScreenManager {
             Obstacle.makeAsBox(30, 12, 16, 2, "HarambeArt/Platform/Mexico Repeat Platform.png");
             Obstacle.makeAsBox(80, 18, 16, 3, "HarambeArt/Platform/Mexico Repeat Platform.png");
             Obstacle.makeAsBox(60, 4.5f, 4, 12, "HarambeArt/Lamp Post.png");
+            Obstacle.makeAsBox(65, 10, 5, 2, "HarambeArt/Platform/Mexico Repeat Platform.png");
 
             // create enemies
             Enemy.makeAsBox(35, 14, 3, 6, "HarambeArt/Characters(Good)/soldierS.png").setPhysics(1.0f, 0.3f, 0.6f);
