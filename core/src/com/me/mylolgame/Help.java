@@ -73,7 +73,7 @@ public class Help implements ScreenManager {
             Util.drawText(9, 5, "These are books for educating (your projectiles)", 0, 0, 0, "arial.ttf", 24, 0);
 
             Obstacle.makeAsBox(5, 0, 3, 3, "HarambeArt/Throw.png");
-            Util.drawText(9, 1, "Projectile Button", 0, 0, 0, "arial.ttf", 24, 0);
+            Util.drawText(9, 1, "Projectile Button (for educating)", 0, 0, 0, "arial.ttf", 24, 0);
 
             // set up a control to go to the next level on screen press
             Control.addCallbackControl(0, 0, 960, 640, "", new LolCallback() {
