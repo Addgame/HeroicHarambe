@@ -52,7 +52,7 @@ public class MyGame extends Lol {
         mNumLevels = 93;
         mEnableVibration = true;
         mUnlockAllLevels = true;
-        mShowDebugBoxes = false;
+        mShowDebugBoxes = true;
         mStorageKey = "com.me.mylolgame.prefs";
         mDefaultFontFace = "arial.ttf";
         mDefaultFontSize = 32;
