@@ -105,7 +105,7 @@ public class Splash implements ScreenManager {
         Obstacle o = Obstacle.makeAsBox(45, 0, 2.5f, 2.5f, "");
         // figure out which image to use for the obstacle based on the current
         // volume state
-        if (Lol.getVolume()) {
+        if (!Lol.getVolume()) {
             o.setImage("audio_off.png", 0);
         } else {
             o.setImage("audio_on.png", 0);
