@@ -1,10 +1,10 @@
-package com.me.mylolgame.android;
+package edu.lehigh.eng5m1b2016.android;
 
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.me.mylolgame.MyGame;
+import edu.lehigh.eng5m1b2016.MyGame;
 
 public class AndroidLauncher extends AndroidApplication {
     @Override

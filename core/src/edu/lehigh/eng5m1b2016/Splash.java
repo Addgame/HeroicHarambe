@@ -25,7 +25,7 @@
  * For more information, please refer to <http://unlicense.org>
  */
 
-package com.me.mylolgame;
+package edu.lehigh.eng5m1b2016;
 
 import edu.lehigh.cse.lol.Control;
 import edu.lehigh.cse.lol.Facts;

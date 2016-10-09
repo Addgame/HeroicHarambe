@@ -25,7 +25,7 @@
  * For more information, please refer to <http://unlicense.org>
  */
 
-package com.me.mylolgame;
+package edu.lehigh.eng5m1b2016;
 
 import edu.lehigh.cse.lol.Facts;
 import edu.lehigh.cse.lol.Lol;
@@ -54,7 +54,7 @@ public class MyGame extends Lol {
         mEnableVibration = true;
         mUnlockAllLevels = false;
         mShowDebugBoxes = false;
-        mStorageKey = "com.me.mylolgame.prefs";
+        mStorageKey = "edu.lehigh.eng5m1b2016.prefs";
         mDefaultFontFace = "arial.ttf";
         mDefaultFontSize = 32;
         mDefaultFontRed = 0;
