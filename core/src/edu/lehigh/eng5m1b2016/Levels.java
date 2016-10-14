@@ -29,6 +29,8 @@ package edu.lehigh.eng5m1b2016;
 
 import com.badlogic.gdx.math.Vector2;
 
+import java.lang.Override;
+
 import edu.lehigh.cse.lol.Actor;
 import edu.lehigh.cse.lol.Animation;
 import edu.lehigh.cse.lol.Background;
@@ -264,6 +266,14 @@ public class Levels implements ScreenManager {
 
             // set level music
             Level.setMusic("Music/Bosses/Boss 03 (Final).ogg");
+            Level.setWinCallback(
+                    new LolCallback() {
+                        @Override
+                        void onEvent() {
+                            Lol.doChooser(2); // goes to end credits
+                        }
+                    }
+            );
 
             // add background
             Background.addHorizontalLayer(0,0, "HarambeArt/Platform/cincinatti.png", -16, 48, 32);
@@ -306,7 +316,6 @@ public class Levels implements ScreenManager {
                         public void onEvent() {
                             if (Score.getEnemiesDefeated() == ScoreHack.getEnemiesCreated()) {
                                 Score.winLevel();
-                                Lol.doChooser(2); // goes to end credits
                             }
                         }
                     }
