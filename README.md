@@ -1,3 +1,8 @@
+Heroic Harmabe
+======
+
+This is the game created in the ENGR5 CSE lab using the LibLOL library.
+
 LibLOL
 ======
 
